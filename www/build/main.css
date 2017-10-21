@@ -28033,6 +28033,25 @@ page-progress h3 {
   margin-top: 10px !important;
 }
 
+page-settings .header {
+  padding: 10px 0 20px 0;
+  background-color: #C30B0B;
+}
+
+page-settings .toolbar {
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+page-settings .toolbar .toolbar-background {
+  background-color: #C30B0B;
+}
+
+page-settings .progress-bar-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
 page-swipe ion-card {
   padding: 10px;
 }

@@ -1,0 +1,21 @@
+page-settings {
+
+  .header {
+    padding: 10px 0 20px 0;
+    background-color: color($colors, primary);
+  }
+  .toolbar {
+    height: 100%;
+    margin-bottom: 10px;
+    // .back-button {
+    //   color: #fff;
+    // }
+    .toolbar-background {
+      background-color: color($colors, primary);
+    }
+  }
+  .progress-bar-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
