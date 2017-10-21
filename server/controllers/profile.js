@@ -17,6 +17,7 @@ app.get('/inventory/:ingredient', (req, res) => {
 
 
 app.post('/inventory', (req, res) => {
+  console.log(req)
   let ingredient = new IngredientMap(req.body);
 
   ingredient.save().then((doc) => {
