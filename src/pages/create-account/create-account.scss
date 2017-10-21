@@ -1,0 +1,28 @@
+page-create-account {
+  .toolbar {
+    color: #fff;
+    .back-button {
+      color: #fff;
+    }
+  }
+  .toolbar-background {
+    background-color: color($colors, primary);
+  }
+  .toolbar-title {
+    color: #fff;
+  }
+  .item {
+    margin-bottom: 10px;
+    &.item-input {
+      border-radius: 15px;
+    }
+  }
+  .logo {
+    text-align: center;
+    img {
+      width: 50%;
+      margin-top: 5%;
+      margin-bottom: 20px;
+    }
+  }
+}

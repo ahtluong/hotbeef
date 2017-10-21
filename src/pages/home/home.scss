@@ -1,3 +1,17 @@
 page-home {
-
+  div {
+    margin-top: 10%;
+    img {
+      width: 75%;
+      margin-bottom: 30px;
+    }
+    .button {
+      background: #fff;
+      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: .05em;
+      color: color($colors, secondary);
+      width: 100%;
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { CreateAccountPage } from '../create-account/create-account';
 
 @Component({
   selector: 'page-home',
@@ -11,4 +12,8 @@ export class HomePage {
 
   }
 
+  createAccount() {
+    console.log('hi');
+    this.navCtrl.push(CreateAccountPage);
+  }
 }
