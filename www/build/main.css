@@ -27972,12 +27972,31 @@ page-welcome .logo img {
   margin-bottom: 20px;
 }
 
-page-welcome ion-content ion-icon {
-  padding: 2px;
-  color: #C30B0B;
-  width: 50px;
-  height: 50px;
-  font-size: 55px;
-  background-color: #f4f4f4;
-  border-radius: 100%;
+page-welcome ion-content {
+  text-align: center;
+  height: 100%;
+}
+
+page-welcome ion-content #congrats {
+  color: #F76F19;
+  font-size: 40px;
+}
+
+page-welcome ion-content #name {
+  text-transform: uppercase;
+  color: #f4f4f4;
+  font-size: 65px;
+}
+
+page-welcome ion-content #start {
+  color: #F9E6E7;
+  font-size: 50px;
+  margin: 50px;
+}
+
+page-welcome ion-content img {
+  width: 65px;
+  height: 65px;
+  display: block;
+  margin: 70px auto auto auto;
 }
