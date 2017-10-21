@@ -2,8 +2,6 @@ var {mongoose} = require('../db/mongoose');
 var {IngredientMap} = require('../models/ingredient_map');
 var Router = require('express').Router;
 var app = new Router();
-module.exports.ProfileController = app;
-
 
 app.get('/inventory/:ingredient', (req, res) => {
   let ingredient = req.params.ingredient;
@@ -30,3 +28,5 @@ app.post('/inventory', (req, res) => {
     res.status(400).send(e);
   });
 });
+
+module.exports.UserController = app;
