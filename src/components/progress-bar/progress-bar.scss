@@ -24,4 +24,19 @@ progress-bar {
       }
     }
   }
+
+  &.on-white {
+    .progress-bar-container {
+      background: color($colors, light);
+      height: 20px;
+      .progress-bar {
+        height: inherit;
+        .text-wrapper {
+          padding-left: 7px;
+          margin-top: -8px;
+          font-size: .8em;
+        }
+      }
+    }
+  }
 }

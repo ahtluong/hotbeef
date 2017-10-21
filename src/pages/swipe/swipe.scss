@@ -2,9 +2,10 @@ page-swipe {
 
   ion-card {
     padding: 10px;
-    // border: 0px;
-    // box-shadow: none !important;
-    // -webkit-box-shadow: none !important;
+    img {
+      width: 50%;
+      margin: 0 auto;
+    }
   }
 
   .bio {
