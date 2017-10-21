@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CreateAccountPage } from '../create-account/create-account';
-import { SwipePage } from '../swipe/swipe';
+import { TabsPage } from '../tabModule/tabs/tabs';
 
 @Component({
   selector: 'page-home',
@@ -18,6 +18,6 @@ export class HomePage {
   }
 
   login() {
-    this.navCtrl.push(SwipePage);
+    this.navCtrl.push(TabsPage);
   }
 }

@@ -27817,7 +27817,8 @@ ion-navbar.toolbar {
 }
 
 @font-face {
-  font-family: MontserratSemiBold;
+  font-family: Montserrat;
+  font-weight: 600;
   src: url("../assets/fonts/Montserrat-SemiBold.ttf");
 }
 
@@ -28081,6 +28082,30 @@ page-swipe .swipe-left-right .checkmark {
 
 page-swipe .swipe-left-right .close {
   color: #C30B0B;
+}
+
+page-tabs .tabbar {
+  border: 0px !important;
+}
+
+page-tabs .tabbar .tab-button {
+  border-right: 1px solid #fff;
+  padding: 15px 0;
+}
+
+page-tabs .tabbar .tab-button:last-of-type {
+  border-right: 0px;
+}
+
+page-tabs .tab-button[aria-selected="true"] {
+  color: #F76F19 !important;
+}
+
+page-tabs .tab-button-text {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
 }
 
 page-welcome .toolbar {

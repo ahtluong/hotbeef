@@ -3,9 +3,11 @@ import { NavbarLogoComponent } from './navbar-logo/navbar-logo';
 import { ProgressBarComponent } from './progress-bar/progress-bar';
 @NgModule({
 	declarations: [NavbarLogoComponent,
-    ProgressBarComponent],
+    ProgressBarComponent
+  ],
 	imports: [],
 	exports: [NavbarLogoComponent,
-    ProgressBarComponent]
+    ProgressBarComponent
+  ]
 })
 export class ComponentsModule {}

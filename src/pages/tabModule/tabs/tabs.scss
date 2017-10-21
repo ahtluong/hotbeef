@@ -1,0 +1,21 @@
+page-tabs {
+  .tabbar {
+    border: 0px !important;
+    .tab-button {
+      border-right: 1px solid #fff;
+      padding: 15px 0;
+      &:last-of-type {
+        border-right: 0px;
+      }
+    }
+  }
+  .tab-button[aria-selected="true"] {
+    color: color($colors, secondary) !important;
+  }
+  .tab-button-text {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+}

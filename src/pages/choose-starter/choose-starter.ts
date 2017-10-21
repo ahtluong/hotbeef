@@ -15,7 +15,6 @@ export class ChooseStarterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChooseStarterPage');
     let options = document.getElementsByClassName('options');
-    var context = this;
     for (let i = 0; i < options.length; i++) {
     	options[i].addEventListener('click', (e) => {
     		this.onClick(options[i]);
