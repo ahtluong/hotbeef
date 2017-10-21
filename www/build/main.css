@@ -27833,6 +27833,14 @@ body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title, ion-card-hea
   text-align: center;
 }
 
+.content-ios:not([no-bounce]) > .scroll-content::before {
+  bottom: 0;
+}
+
+.ios .scroll-content {
+  -webkit-overflow-scrolling: auto !important;
+}
+
 progress-bar {
   display: block;
   color: #fff;
@@ -27868,6 +27876,61 @@ progress-bar .progress-bar-container .progress-bar .text-wrapper {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+page-choose-starter .toolbar {
+  color: #fff;
+}
+
+page-choose-starter .toolbar .back-button {
+  color: #fff;
+}
+
+page-choose-starter .toolbar-background {
+  background-color: #C30B0B;
+}
+
+page-choose-starter .toolbar-title {
+  color: #fff;
+}
+
+page-choose-starter .item {
+  margin-bottom: 10px;
+}
+
+page-choose-starter .item.item-input {
+  border-radius: 15px;
+}
+
+page-choose-starter .logo {
+  text-align: center;
+}
+
+page-choose-starter .logo img {
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 20px;
+}
+
+page-choose-starter ion-row {
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+page-choose-starter ion-row ion-col {
+  width: 100px;
+  height: 100%;
+  float: center;
+}
+
+page-choose-starter ion-row ion-col div {
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  width: 80%;
+  size: 80%;
+  border-radius: 15px;
 }
 
 page-create-account .toolbar {
@@ -27985,4 +28048,48 @@ page-swipe .swipe-left-right .checkmark {
 
 page-swipe .swipe-left-right .close {
   color: #C30B0B;
+}
+
+page-welcome .toolbar {
+  color: #fff;
+}
+
+page-welcome .toolbar .back-button {
+  color: #fff;
+}
+
+page-welcome .toolbar-background {
+  background-color: #C30B0B;
+}
+
+page-welcome .toolbar-title {
+  color: #fff;
+}
+
+page-welcome .item {
+  margin-bottom: 10px;
+}
+
+page-welcome .item.item-input {
+  border-radius: 15px;
+}
+
+page-welcome .logo {
+  text-align: center;
+}
+
+page-welcome .logo img {
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 20px;
+}
+
+page-welcome ion-content ion-icon {
+  padding: 2px;
+  color: #C30B0B;
+  width: 50px;
+  height: 50px;
+  font-size: 55px;
+  background-color: #f4f4f4;
+  border-radius: 100%;
 }
