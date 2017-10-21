@@ -14,7 +14,6 @@ import { TabsPage } from '../tabModule/tabs/tabs';
   templateUrl: 'welcome.html',
 })
 export class WelcomePage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

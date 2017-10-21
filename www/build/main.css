@@ -28052,6 +28052,10 @@ page-settings .progress-bar-wrapper {
   margin: 0 auto;
 }
 
+page-settings .center {
+  margin-top: 10px;
+}
+
 page-swipe ion-card {
   padding: 10px;
 }

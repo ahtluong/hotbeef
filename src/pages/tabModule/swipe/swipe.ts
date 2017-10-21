@@ -19,7 +19,7 @@ export class SwipePage {
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'You\'ve got a match!',
-      subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
+      subTitle: 'Check your progress.',
       buttons: ['OK']
     });
     alert.present();
