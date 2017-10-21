@@ -24,4 +24,8 @@ export class SwipePage {
     });
     alert.present();
   }
+
+  rejectIngredient() {
+    // logic for removing card and replacing with new view
+  }
 }

@@ -28028,7 +28028,8 @@ page-progress .progress-bar-wrapper {
 page-progress h3 {
   text-transform: uppercase;
   font-size: 1em;
-  font-family: 'MontserratSemiBold', sans-serif !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600;
   letter-spacing: 1px;
   margin-top: 10px !important;
 }
