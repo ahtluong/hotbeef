@@ -27922,6 +27922,25 @@ page-home div .button {
   width: 100%;
 }
 
+page-progress .header {
+  padding: 10px 0 20px 0;
+  background-color: #C30B0B;
+}
+
+page-progress .toolbar {
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+page-progress .toolbar .toolbar-background {
+  background-color: #C30B0B;
+}
+
+page-progress .progress-bar-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
 page-swipe ion-card {
   padding: 10px;
 }

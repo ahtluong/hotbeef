@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { CreateAccountPage } from '../pages/create-account/create-account';
 import { ChooseStarterPage } from '../pages/choose-starter/choose-starter';
 import { SwipePage } from '../pages/swipe/swipe';
+import { ProgressPage } from '../pages/progress/progress';
 
 // Components
 import { NavbarLogoComponent } from '../components/navbar-logo/navbar-logo';
@@ -23,6 +24,7 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
     CreateAccountPage,
     ChooseStarterPage,
     SwipePage,
+    ProgressPage,
     // Components
     NavbarLogoComponent,
     ProgressBarComponent
@@ -37,7 +39,8 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
     HomePage,
     CreateAccountPage,
     ChooseStarterPage,
-    SwipePage
+    SwipePage,
+    ProgressPage
   ],
   providers: [
     StatusBar,

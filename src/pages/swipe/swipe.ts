@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ProgressPage } from '../progress/progress';
 /**
  * Generated class for the SwipePage page.
  *
@@ -20,6 +20,10 @@ export class SwipePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SwipePage');
+  }
+
+  progressPage() {
+    this.navCtrl.push(ProgressPage);
   }
 
 }
