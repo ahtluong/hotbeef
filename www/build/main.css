@@ -27811,7 +27811,17 @@ ion-navbar.toolbar {
   src: url("../assets/fonts/Montserrat-Regular.ttf");
 }
 
-body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
+@font-face {
+  font-family: MontserratLight;
+  src: url("../assets/fonts/Montserrat-Light.ttf");
+}
+
+@font-face {
+  font-family: MontserratBold;
+  src: url("../assets/fonts/Montserrat-Bold.ttf");
+}
+
+body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title, ion-card-header {
   font-family: 'Montserrat' !important;
 }
 
@@ -27825,6 +27835,7 @@ body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
 
 progress-bar {
   display: block;
+  color: #fff;
 }
 
 progress-bar .progress-bar-container {
@@ -27842,6 +27853,21 @@ progress-bar .progress-bar-container .progress-bar {
   height: 40px;
   border-radius: 15px;
   width: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+progress-bar .progress-bar-container .progress-bar .text-wrapper {
+  padding: 0;
+  padding-left: 10px;
+  margin-top: -3px;
+  text-align: left;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 page-create-account .toolbar {
@@ -27896,6 +27922,17 @@ page-home div .button {
   width: 100%;
 }
 
+page-swipe ion-card {
+  padding: 10px;
+}
+
+page-swipe .bio {
+  background: #f4f4f4;
+  border-radius: 5px;
+  font-family: 'MontserratLight', sans-serif !important;
+  font-size: .9em;
+}
+
 page-swipe .header {
   padding: 10px 0 20px 0;
   background-color: #C30B0B;
@@ -27913,4 +27950,20 @@ page-swipe .toolbar .toolbar-background {
 page-swipe .progress-bar-wrapper {
   width: 90%;
   margin: 0 auto;
+}
+
+page-swipe .swipe-left-right {
+  text-align: center;
+}
+
+page-swipe .swipe-left-right ion-icon {
+  font-size: 5em;
+}
+
+page-swipe .swipe-left-right .checkmark {
+  color: #48D84B;
+}
+
+page-swipe .swipe-left-right .close {
+  color: #C30B0B;
 }

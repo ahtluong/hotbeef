@@ -17,8 +17,8 @@ export class ProgressBarComponent {
 
   constructor() {
     console.log('Hello ProgressBarComponent Component');
-    this.text = 'Hello World';
     this.amount = 50;
+    this.text = String(this.amount) + '%';
   }
 
 }

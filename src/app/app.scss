@@ -19,8 +19,17 @@
   font-family: Montserrat;
   src: url("../assets/fonts/Montserrat-Regular.ttf");
 }
+@font-face {
+  font-family: MontserratLight;
+  src: url("../assets/fonts/Montserrat-Light.ttf");
+}
+
+@font-face {
+  font-family: MontserratBold;
+  src: url("../assets/fonts/Montserrat-Bold.ttf");
+}
   
-body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
+body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title, ion-card-header {
   font-family: 'Montserrat' !important;
 }
 

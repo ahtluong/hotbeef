@@ -1,5 +1,18 @@
-
 page-swipe {
+
+  ion-card {
+    padding: 10px;
+    // border: 0px;
+    // box-shadow: none !important;
+    // -webkit-box-shadow: none !important;
+  }
+
+  .bio {
+    background: color($colors, light);
+    border-radius: 5px;
+    font-family: 'MontserratLight', sans-serif !important;
+    font-size: .9em;
+  }
   .header {
     padding: 10px 0 20px 0;
     background-color: color($colors, primary);
@@ -7,6 +20,9 @@ page-swipe {
   .toolbar {
     height: 100%;
     margin-bottom: 10px;
+    // .back-button {
+    //   color: #fff;
+    // }
     .toolbar-background {
       background-color: color($colors, primary);
     }
@@ -15,5 +31,17 @@ page-swipe {
     width: 90%;
     margin: 0 auto;
   }
- 
+
+  .swipe-left-right {
+    text-align: center;
+    ion-icon {
+      font-size: 5em;
+    }
+    .checkmark {
+      color: color($colors, green);
+    }
+    .close {
+      color: color($colors, primary);
+    }
+  }
 }

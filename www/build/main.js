@@ -1,4 +1,4 @@
-webpackJsonp([3],{
+webpackJsonp([4],{
 
 /***/ 100:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -87,7 +87,7 @@ var SwipePage = (function () {
 }());
 SwipePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-swipe',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/swipe/swipe.html"*/'<!--\n  Generated template for the SwipePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>\n      <navbar-logo></navbar-logo>\n    </ion-title>\n  </ion-navbar>\n  <div class="progress-bar-wrapper">\n    <progress-bar></progress-bar>\n  </div>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/swipe/swipe.html"*/,
+        selector: 'page-swipe',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/swipe/swipe.html"*/'<!--\n  Generated template for the SwipePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>\n      <navbar-logo></navbar-logo>\n    </ion-title>\n  </ion-navbar>\n  <div class="progress-bar-wrapper">\n    <progress-bar></progress-bar>\n  </div>\n\n</ion-header>\n\n<ion-content padding no-bounce>\n  <ion-card>\n    <img src="../../assets/imgs/logo.png">\n    <ion-card-header>\n      Hello\n    </ion-card-header>\n    <ion-item class="bio">\n      bb pls\n    </ion-item>\n  </ion-card>\n\n  <!-- Swipe left/right -->\n  <ion-grid class="swipe-left-right">\n    <ion-row>\n      <ion-col col-6>\n        <ion-icon class="close" name="close-circle-outline"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n        <ion-icon class="checkmark" name="md-checkmark-circle-outline"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/swipe/swipe.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
 ], SwipePage);
@@ -119,15 +119,19 @@ webpackEmptyAsyncContext.id = 110;
 var map = {
 	"../pages/choose-starter/choose-starter.module": [
 		267,
-		2
+		3
 	],
 	"../pages/create-account/create-account.module": [
 		268,
-		1
+		2
 	],
-	"../pages/swipe/swipe.module": [
+	"../pages/progress/progress.module": [
 		269,
 		0
+	],
+	"../pages/swipe/swipe.module": [
+		270,
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -250,11 +254,13 @@ var AppModule = (function () {
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
         declarations: [
+            // Pages
             __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
             __WEBPACK_IMPORTED_MODULE_7__pages_create_account_create_account__["a" /* CreateAccountPage */],
             __WEBPACK_IMPORTED_MODULE_8__pages_choose_starter_choose_starter__["a" /* ChooseStarterPage */],
             __WEBPACK_IMPORTED_MODULE_9__pages_swipe_swipe__["a" /* SwipePage */],
+            // Components
             __WEBPACK_IMPORTED_MODULE_10__components_navbar_logo_navbar_logo__["a" /* NavbarLogoComponent */],
             __WEBPACK_IMPORTED_MODULE_11__components_progress_bar_progress_bar__["a" /* ProgressBarComponent */]
         ],
@@ -264,6 +270,7 @@ AppModule = __decorate([
                 links: [
                     { loadChildren: '../pages/choose-starter/choose-starter.module#ChooseStarterPageModule', name: 'ChooseStarterPage', segment: 'choose-starter', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/create-account/create-account.module#CreateAccountPageModule', name: 'CreateAccountPage', segment: 'create-account', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/progress/progress.module#ProgressPageModule', name: 'ProgressPage', segment: 'progress', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/swipe/swipe.module#SwipePageModule', name: 'SwipePage', segment: 'swipe', priority: 'low', defaultHistory: [] }
                 ]
             })
@@ -365,7 +372,7 @@ var NavbarLogoComponent = (function () {
 }());
 NavbarLogoComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'navbar-logo',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/components/navbar-logo/navbar-logo.html"*/'<!-- Generated template for the NavbarLogoComponent component -->\n<div>\n  <img src="../assets/imgs/logo-inline.png">\n  {{text}}\n</div>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/components/navbar-logo/navbar-logo.html"*/
+        selector: 'navbar-logo',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/components/navbar-logo/navbar-logo.html"*/'<!-- Generated template for the NavbarLogoComponent component -->\n<div>\n  <img src="../assets/imgs/logo-inline.png">\n</div>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/components/navbar-logo/navbar-logo.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], NavbarLogoComponent);
@@ -399,14 +406,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ProgressBarComponent = (function () {
     function ProgressBarComponent() {
         console.log('Hello ProgressBarComponent Component');
-        this.text = 'Hello World';
-        this.amount = 1;
+        this.amount = 50;
+        this.text = String(this.amount) + '%';
     }
     return ProgressBarComponent;
 }());
 ProgressBarComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'progress-bar',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/components/progress-bar/progress-bar.html"*/'<!-- Generated template for the ProgressBarComponent component -->\n<div>\n  <div class="progress-bar-container">\n    <div class="progress-bar" width="">\n      {{ text }}\n    </div>\n  </div>\n</div>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/components/progress-bar/progress-bar.html"*/
+        selector: 'progress-bar',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/components/progress-bar/progress-bar.html"*/'<!-- Generated template for the ProgressBarComponent component -->\n<div>\n  <div class="progress-bar-container">\n    <div class="progress-bar" width="">\n      <div class="text-wrapper">\n        <p>{{ text }}</p>\n      </div>\n    </div>\n  </div>\n</div>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/components/progress-bar/progress-bar.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], ProgressBarComponent);

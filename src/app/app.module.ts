@@ -17,11 +17,13 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 
 @NgModule({
   declarations: [
+    // Pages
     MyApp,
     HomePage,
     CreateAccountPage,
     ChooseStarterPage,
     SwipePage,
+    // Components
     NavbarLogoComponent,
     ProgressBarComponent
   ],
