@@ -28099,6 +28099,11 @@ page-tabs .tabbar .tab-button:last-of-type {
 
 page-tabs .tab-button[aria-selected="true"] {
   color: #F76F19 !important;
+  background-color: #fff;
+}
+
+page-tabs .tab-button[aria-selected="true"] .tab-button-text {
+  font-size: 1.7em !important;
 }
 
 page-tabs .tab-button-text {
@@ -28162,6 +28167,7 @@ page-welcome ion-content #start {
   color: #F9E6E7;
   font-size: 50px;
   margin: 50px;
+  font-family: 'MontserratLight', sans-serif !important;
 }
 
 page-welcome ion-content img {

@@ -11,6 +11,10 @@ page-tabs {
   }
   .tab-button[aria-selected="true"] {
     color: color($colors, secondary) !important;
+    background-color: #fff;
+    .tab-button-text {
+      font-size: 1.7em !important;
+    }
   }
   .tab-button-text {
     font-family: 'Montserrat', sans-serif !important;

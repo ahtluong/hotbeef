@@ -30,7 +30,7 @@ page-welcome {
   	height: 100%;
   	#congrats {
   		color: color($colors, secondary);
-  		font-size: 40px;
+      font-size: 40px;
   	}
   	#name {
   		text-transform: uppercase;
@@ -40,7 +40,8 @@ page-welcome {
   	#start {
   		color: #F9E6E7;
   		font-size: 50px;
-  		margin: 50px;
+      margin: 50px;
+      font-family: 'MontserratLight', sans-serif !important;
   	}
 		img {
 			width: 65px;
