@@ -36,26 +36,9 @@ var ProfileSchema = new Schema({
 });
 
 var IngredientMapSchema = new Schema({
-	bread: {
-    icon_url: String,
-    dishes: [DishSchema]
-  },
-  beef: {
-    icon_url: String,
-    dishes: [DishSchema]
-  },
-  pasta: {
-    icon_url: String,
-    dishes: [DishSchema]
-  },
-  cheese: {
-    icon_url: String,
-    dishes: [DishSchema]
-  },
-  tomato: {
-    icon_url: String,
-    dishes: [DishSchema]
-  }
+  name: String,
+  icon_url: String,
+  dishes: [DishSchema]
 });
 
 module.exports = {

@@ -17,18 +17,9 @@ app.get('/inventory/:ingredient', (req, res) => {
 
 
 app.post('/inventory', (req, res) => {
-  var ingredient_map = new IngredientMap({
-    "bread": {"icon_url": "www.google.com", "dishes": 
-        [{"dish_name": "grilled cheese", "ingredients": [{"name": "cheese", "acquired": 0}]}]},
-    "beef": {"icon_url": "www.hotmail.com", "dishes": 
-        [{"dish_name": "spaghetti", "ingredients": [{"name": "pasta", "acquired": 0}]}]},
-    "pasta": {"icon_url": "www.gmail.com", "dishes": 
-        [{"dish_name": "alfredo", "ingredients": [{"name": "cheese", "acquired": 0}]}]},
-    "cheese": {"icon_url": "www.cnn.com", "dishes": 
-        [{"dish_name": "grilled cheese", "ingredients": [{"name": "bread", "acquired": 0}]}]}
-  });
+  let ingredient = new IngredientMap(req.body);
 
-  ingredient_map.save().then((doc) => {
+  ingredient.save().then((doc) => {
     res.send(doc);
   }, (e) => {
     res.status(400).send(e);
