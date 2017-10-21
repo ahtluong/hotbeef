@@ -4,13 +4,15 @@ page-create-account {
     .back-button {
       color: #fff;
     }
+    .toolbar-background {
+      background-color: color($colors, primary);
+    }
+    .toolbar-title {
+      color: #fff;
+    }
   }
-  .toolbar-background {
-    background-color: color($colors, primary);
-  }
-  .toolbar-title {
-    color: #fff;
-  }
+  
+ 
   .item {
     margin-bottom: 10px;
     &.item-input {

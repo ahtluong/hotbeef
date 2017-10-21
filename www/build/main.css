@@ -27823,6 +27823,27 @@ body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
   text-align: center;
 }
 
+progress-bar {
+  display: block;
+}
+
+progress-bar .progress-bar-container {
+  height: 40px;
+  width: 100%;
+  display: block;
+  background: #fff;
+  border-radius: 15px;
+}
+
+progress-bar .progress-bar-container .progress-bar {
+  background: #F76F19;
+  display: block;
+  content: ' ';
+  height: 40px;
+  border-radius: 15px;
+  width: 50%;
+}
+
 page-create-account .toolbar {
   color: #fff;
 }
@@ -27831,11 +27852,11 @@ page-create-account .toolbar .back-button {
   color: #fff;
 }
 
-page-create-account .toolbar-background {
+page-create-account .toolbar .toolbar-background {
   background-color: #C30B0B;
 }
 
-page-create-account .toolbar-title {
+page-create-account .toolbar .toolbar-title {
   color: #fff;
 }
 
@@ -27873,4 +27894,23 @@ page-home div .button {
   letter-spacing: .05em;
   color: #F76F19;
   width: 100%;
+}
+
+page-swipe .header {
+  padding: 10px 0 20px 0;
+  background-color: #C30B0B;
+}
+
+page-swipe .toolbar {
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+page-swipe .toolbar .toolbar-background {
+  background-color: #C30B0B;
+}
+
+page-swipe .progress-bar-wrapper {
+  width: 90%;
+  margin: 0 auto;
 }
