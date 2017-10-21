@@ -36,7 +36,7 @@ var WelcomePage = (function () {
 }());
 WelcomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-welcome',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/welcome/welcome.html"*/'<!--\n  Generated template for the WelcomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Welcome</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-alternate">\n	<h3>Congrats</h3>\n	<h1>Hot Dog</h1>\n\n	<h3>Start your journey</h3>\n	<ion-icon name="arrow-round-forward" ios="md-arrow-round-forward" android="md-arrow-round-forward"></ion-icon>\n</ion-content>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/welcome/welcome.html"*/,
+        selector: 'page-welcome',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/welcome/welcome.html"*/'<!--\n  Generated template for the WelcomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Welcome</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-alternate">\n	<div class="ion-fixed">\n		<h3 id="congrats">Congrats</h3>\n		<h1 id="name">Hot Dog</h1>\n\n		<h3 id="start">Start your journey</h3>\n		<img src="../../assets/icon/arrow.svg">\n	</div>\n</ion-content>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/welcome/welcome.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
 ], WelcomePage);
@@ -46,6 +46,51 @@ WelcomePage = __decorate([
 /***/ }),
 
 /***/ 101:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgressPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the ProgressPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ProgressPage = (function () {
+    function ProgressPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    ProgressPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ProgressPage');
+    };
+    return ProgressPage;
+}());
+ProgressPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-progress',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/progress/progress.html"*/'<!--\n  Generated template for the ProgressPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>\n      <navbar-logo></navbar-logo>\n    </ion-title>\n  </ion-navbar>\n  <div class="progress-bar-wrapper">\n    <progress-bar></progress-bar>\n  </div>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-3>\n        <img src="../../assets/icon/ingredients/hamburger.svg">\n      </ion-col>\n      <ion-col col-9>\n        <h3>Hamburger</h3>\n        <div class="progress-bar-wrapper" style="width: 100%">\n            <progress-bar class="on-white"></progress-bar>\n          </div>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-col col-3>\n          <img src="../../assets/icon/ingredients/hamburger.svg">\n        </ion-col>\n        <ion-col col-9>\n          <h3>Hamburger</h3>\n          <div class="progress-bar-wrapper" style="width: 100%">\n              <progress-bar class="on-white"></progress-bar>\n            </div>\n        </ion-col>\n      </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/progress/progress.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+], ProgressPage);
+
+//# sourceMappingURL=progress.js.map
+
+/***/ }),
+
+/***/ 102:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -96,51 +141,6 @@ CreateAccountPage = __decorate([
 
 /***/ }),
 
-/***/ 102:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgressPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the ProgressPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var ProgressPage = (function () {
-    function ProgressPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    ProgressPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ProgressPage');
-    };
-    return ProgressPage;
-}());
-ProgressPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-progress',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/progress/progress.html"*/'<!--\n  Generated template for the ProgressPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>\n      <navbar-logo></navbar-logo>\n    </ion-title>\n  </ion-navbar>\n  <div class="progress-bar-wrapper">\n    <progress-bar></progress-bar>\n  </div>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-3>\n        <img src="../../assets/icon/ingredients/hamburger.svg">\n      </ion-col>\n      <ion-col col-9>\n        <h3>Hamburger</h3>\n        <div class="progress-bar-wrapper" style="width: 100%">\n            <progress-bar class="on-white"></progress-bar>\n          </div>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-col col-3>\n          <img src="../../assets/icon/ingredients/hamburger.svg">\n        </ion-col>\n        <ion-col col-9>\n          <h3>Hamburger</h3>\n          <div class="progress-bar-wrapper" style="width: 100%">\n              <progress-bar class="on-white"></progress-bar>\n            </div>\n        </ion-col>\n      </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/progress/progress.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
-], ProgressPage);
-
-//# sourceMappingURL=progress.js.map
-
-/***/ }),
-
 /***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -148,7 +148,7 @@ ProgressPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SwipePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__progress_progress__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__progress_progress__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -217,11 +217,11 @@ var map = {
 		4
 	],
 	"../pages/create-account/create-account.module": [
-		270,
+		271,
 		3
 	],
 	"../pages/progress/progress.module": [
-		271,
+		270,
 		2
 	],
 	"../pages/swipe/swipe.module": [
@@ -256,7 +256,7 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_account_create_account__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_account_create_account__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__swipe_swipe__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -320,10 +320,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(266);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_create_account_create_account__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_create_account_create_account__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_choose_starter_choose_starter__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_swipe_swipe__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_progress_progress__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_progress_progress__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_welcome_welcome__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_navbar_logo_navbar_logo__ = __webpack_require__(267);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_progress_bar_progress_bar__ = __webpack_require__(268);
@@ -374,8 +374,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                 links: [
                     { loadChildren: '../pages/choose-starter/choose-starter.module#ChooseStarterPageModule', name: 'ChooseStarterPage', segment: 'choose-starter', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/create-account/create-account.module#CreateAccountPageModule', name: 'CreateAccountPage', segment: 'create-account', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/progress/progress.module#ProgressPageModule', name: 'ProgressPage', segment: 'progress', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/create-account/create-account.module#CreateAccountPageModule', name: 'CreateAccountPage', segment: 'create-account', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/swipe/swipe.module#SwipePageModule', name: 'SwipePage', segment: 'swipe', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                 ]
