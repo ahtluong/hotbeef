@@ -12,9 +12,9 @@ var config = require('../config');
 
 app.post('/register', function(req, res) {
   var hashedPassword = bcrypt.hashSync(req.body.password, 8);
-  
+  console.log(req.body);
   User.create({
-    name : req.body.name,
+    username : req.body.username,
     password : hashedPassword
   },
   function (err, user) {
@@ -37,7 +37,7 @@ app.get('/me', VerifyToken, function(req, res, next) {
 });
 
 app.post('/login', function(req, res) {
-  User.findOne({ name: req.body.name }, function (err, user) {
+  User.findOne({ username: req.body.username }, function (err, user) {
     if (err) return res.status(500).send('Error on the server.');
     if (!user) return res.status(404).send('No user found.');
 

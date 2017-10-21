@@ -1,11 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
-  name: String,
-  password: String
-});
-
 var IngredientSchema = new Schema({
   name: String,
   acquired: Boolean
@@ -16,11 +11,11 @@ var DishSchema = new Schema({
   ingredients: [IngredientSchema],
 });
 
-var ProfileSchema = new Schema({
-	name: String,
-	password: String,
-	icon_url: String,
-	bio: String,
+var UserSchema = new Schema({
+  username: String,
+  password: String,
+  icon_url: String,
+  bio: String,
 	starter_ingredient: String,
   portion: Number,
   inventory: [DishSchema],
@@ -28,12 +23,25 @@ var ProfileSchema = new Schema({
 			lat: Number, 
 			long: Number
 	},
-	swipes: {
-		tomato: [Number],
-		potato: [Number],
-		almond: [Number]
-	},
+	swipes: [{ingredient: String, id: Number}] 
 });
+
+
+
+// var ProfileSchema = new Schema({
+// 	name: String,
+// 	password: String,
+// 	icon_url: String,
+// 	bio: String,
+// 	starter_ingredient: String,
+//   portion: Number,
+//   inventory: [DishSchema],
+// 	location: { 
+// 			lat: Number, 
+// 			long: Number
+// 	},
+// 	swipes: [{ingredient: String, id: Number}]
+// });
 
 var IngredientMapSchema = new Schema({
   name: String,
@@ -43,6 +51,6 @@ var IngredientMapSchema = new Schema({
 
 module.exports = {
   UserSchema: UserSchema,
-  ProfileSchema: ProfileSchema,
+  // ProfileSchema: ProfileSchema,
   IngredientMapSchema: IngredientMapSchema
 }
