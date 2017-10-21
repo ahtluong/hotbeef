@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SettingsPage } from '../tabModule/settings/settings';
+import { TabsPage } from '../tabModule/tabs/tabs';
 /**
  * Generated class for the WelcomePage page.
  *
@@ -23,6 +23,6 @@ export class WelcomePage {
   }
 
   tabsPage() {
-    this.navCtrl.push(SettingsPage);
+    this.navCtrl.push(TabsPage);
   }
 }
