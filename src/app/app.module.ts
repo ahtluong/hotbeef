@@ -8,13 +8,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CreateAccountPage } from '../pages/create-account/create-account';
 import { ChooseStarterPage } from '../pages/choose-starter/choose-starter';
+import { WelcomePage } from '../pages/welcome/welcome';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     CreateAccountPage,
-    ChooseStarterPage
+    ChooseStarterPage,
+    WelcomePage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { ChooseStarterPage } from '../pages/choose-starter/choose-starter';
     MyApp,
     HomePage,
     CreateAccountPage,
-    ChooseStarterPage
+    ChooseStarterPage,
+    WelcomePage
   ],
   providers: [
     StatusBar,

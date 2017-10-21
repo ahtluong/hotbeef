@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ChooseStarterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { WelcomePage } from '../welcome/welcome';
 
 @IonicPage()
 @Component({
@@ -20,6 +14,18 @@ export class ChooseStarterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChooseStarterPage');
+    let options = document.getElementsByClassName('options');
+    var context = this;
+    for (let i = 0; i < options.length; i++) {
+    	options[i].addEventListener('click', (e) => {
+    		this.onClick(options[i]);
+    	});
+    }
+  }
+
+  onClick(el) {
+  	console.log(el);
+  	this.navCtrl.push(WelcomePage);
   }
 
 }
