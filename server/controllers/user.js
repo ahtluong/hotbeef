@@ -22,7 +22,7 @@ app.put('/select_ingredient', (req, res) => {
     IngredientMap.find({name: ingredient}).then((ingredient_map) => {
       User.update({'username': username}, {$set: {icon_url: ingredient_map.icon_url}}).then((count, status) => {}, (err) => {})
     }, (err) => {
-      res.status(400).send(e);
+      res.status(400).send(err);
     });
   });
 });

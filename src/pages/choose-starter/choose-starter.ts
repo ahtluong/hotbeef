@@ -14,11 +14,9 @@ export class ChooseStarterPage {
 
   username: string;
   displayIngredients;
-  countries: any;
-  errorMessage: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider, private ingredientProvider: IngredientProvider) { 
-      this.username = this.navParams.get('username');
+    this.username = this.navParams.get('username');
   }
 
   ionViewDidLoad() {
@@ -31,8 +29,15 @@ export class ChooseStarterPage {
 
   onClick(el) {
     // el = name
-    this.userProvider.updateUserIngredient(el);
-  	this.navCtrl.push(WelcomePage);
+    // console.log('hello');
+    this.userProvider.updateUserIngredient(el)
+    .then(data => {
+      console.log(data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+    this.navCtrl.push(WelcomePage, {ingredient: el});
   }
 
 }

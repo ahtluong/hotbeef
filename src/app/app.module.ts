@@ -44,9 +44,9 @@ import { IngredientProvider } from '../providers/ingredient/ingredient';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

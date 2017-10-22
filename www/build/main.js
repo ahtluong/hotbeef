@@ -42,8 +42,15 @@ var ChooseStarterPage = (function () {
     };
     ChooseStarterPage.prototype.onClick = function (el) {
         // el = name
-        this.userProvider.updateUserIngredient(el);
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__welcome_welcome__["a" /* WelcomePage */]);
+        // console.log('hello');
+        this.userProvider.updateUserIngredient(el)
+            .then(function (data) {
+            console.log(data);
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__welcome_welcome__["a" /* WelcomePage */], { ingredient: el });
     };
     return ChooseStarterPage;
 }());
@@ -89,6 +96,9 @@ var WelcomePage = (function () {
     function WelcomePage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.ingredient = null;
+        this.ingredient = this.navParams.get('ingredient');
+        console.log(this.ingredient);
     }
     WelcomePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad WelcomePage');
@@ -100,11 +110,12 @@ var WelcomePage = (function () {
 }());
 WelcomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-welcome',template:/*ion-inline-start:"/Users/aluong/code/hotbeef/src/pages/welcome/welcome.html"*/'<!--\n  Generated template for the WelcomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Welcome</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-alternate">\n	<div class="ion-fixed">\n		<h3 id="congrats">Congrats,</h3>\n		<h1 id="name">Hot Dog</h1>\n\n		<h3 id="start">Start your journey</h3>\n		<img src="../../assets/icon/arrow.svg" (click)="tabsPage();">\n	</div>\n</ion-content>\n'/*ion-inline-end:"/Users/aluong/code/hotbeef/src/pages/welcome/welcome.html"*/,
+        selector: 'page-welcome',template:/*ion-inline-start:"/Users/aluong/code/hotbeef/src/pages/welcome/welcome.html"*/'<!--\n  Generated template for the WelcomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Welcome</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-alternate">\n	<div class="ion-fixed">\n		<h3 id="congrats">Congrats,</h3>\n		<h1 id="name">{{ingredient}}</h1>\n\n		<h3 id="start">Start your journey</h3>\n		<img src="../../assets/icon/arrow.svg" (click)="tabsPage();">\n	</div>\n</ion-content>\n'/*ion-inline-end:"/Users/aluong/code/hotbeef/src/pages/welcome/welcome.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
 ], WelcomePage);
 
+var _a, _b;
 //# sourceMappingURL=welcome.js.map
 
 /***/ }),
@@ -116,6 +127,7 @@ WelcomePage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SwipePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_user_user__ = __webpack_require__(79);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -128,14 +140,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SwipePage = (function () {
-    function SwipePage(navCtrl, navParams, alertCtrl) {
+    function SwipePage(navCtrl, navParams, alertCtrl, userProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
+        this.userProvider = userProvider;
+        this.userProvider.fetchPotentialMatch();
     }
     SwipePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SwipePage');
     };
     SwipePage.prototype.showAlert = function () {
         var alert = this.alertCtrl.create({
@@ -154,9 +168,10 @@ SwipePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-swipe',template:/*ion-inline-start:"/Users/aluong/code/hotbeef/src/pages/tabModule/swipe/swipe.html"*/'<!--\n  Generated template for the SwipePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>\n      <navbar-logo></navbar-logo>\n    </ion-title>\n  </ion-navbar>\n  <div class="progress-bar-wrapper">\n    <progress-bar></progress-bar>\n  </div>\n</ion-header>\n\n<ion-content padding no-bounce>\n  <ion-card>\n    <img src="../../../assets/icon/ingredients/broccoli.svg">\n    <ion-card-header>\n      Hello\n    </ion-card-header>\n    <ion-item class="bio">\n      bb pls\n    </ion-item>\n  </ion-card>\n\n  <!-- Swipe left/right -->\n  <ion-grid class="swipe-left-right">\n    <ion-row>\n      <ion-col col-6>\n        <ion-icon class="close" name="close-circle-outline"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n        <ion-icon class="checkmark" name="checkmark-circle" (click)="showAlert();"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/Users/aluong/code/hotbeef/src/pages/tabModule/swipe/swipe.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_user_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_user_user__["a" /* UserProvider */]) === "function" && _d || Object])
 ], SwipePage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=swipe.js.map
 
 /***/ }),
@@ -399,8 +414,6 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -413,15 +426,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var IngredientProvider = (function () {
     function IngredientProvider(http) {
         this.http = http;
-        this.apiUrl = 'https://jsonplaceholder.typicode.com';
+        this.apiUrl = 'http://localhost:3000/api';
     }
     IngredientProvider.prototype.getIngredientList = function () {
         var _this = this;
-        var url = 'http://localhost:3000/api/user/all_ingredient_list';
+        var url = this.apiUrl + '/user/all_ingredient_list';
         return new Promise(function (resolve) {
             _this.http.get(url).subscribe(function (data) {
                 resolve(data);
@@ -434,9 +446,10 @@ var IngredientProvider = (function () {
 }());
 IngredientProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
 ], IngredientProvider);
 
+var _a;
 //# sourceMappingURL=ingredient.js.map
 
 /***/ }),
@@ -578,6 +591,7 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["b" /* HttpClientModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */], {}, {
                 links: [
                     { loadChildren: '../pages/choose-starter/choose-starter.module#ChooseStarterPageModule', name: 'ChooseStarterPage', segment: 'choose-starter', priority: 'low', defaultHistory: [] },
@@ -589,8 +603,7 @@ AppModule = __decorate([
                     { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                 ]
             }),
-            __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["b" /* HttpClientModule */]
+            __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* HttpModule */],
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
         entryComponents: [
@@ -784,7 +797,6 @@ var TabsPage = (function () {
         this.tab3Root = __WEBPACK_IMPORTED_MODULE_4__settings_settings__["a" /* SettingsPage */];
     }
     TabsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad TabsPage');
     };
     return TabsPage;
 }());
@@ -792,9 +804,10 @@ TabsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-tabs',template:/*ion-inline-start:"/Users/aluong/code/hotbeef/src/pages/tabModule/tabs/tabs.html"*/'<ion-tabs>\n    <ion-tab [root]="tab1Root" tabTitle="Swipe"></ion-tab>\n    <ion-tab [root]="tab2Root" tabTitle="Progress"></ion-tab>\n    <ion-tab [root]="tab3Root" tabTitle="Settings"></ion-tab>\n  </ion-tabs>'/*ion-inline-end:"/Users/aluong/code/hotbeef/src/pages/tabModule/tabs/tabs.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
 ], TabsPage);
 
+var _a, _b;
 //# sourceMappingURL=tabs.js.map
 
 /***/ }),
@@ -805,7 +818,7 @@ TabsPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -823,9 +836,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UserProvider = (function () {
     function UserProvider(http) {
         this.http = http;
+        this.apiUrl = 'http://localhost:3000/api';
     }
     UserProvider.prototype.createUser = function (username, password) {
-        // let data = JSON.stringify({username: username, password: password});
         var data = {
             username: username,
             password: password
@@ -839,20 +852,33 @@ var UserProvider = (function () {
         return false;
     };
     UserProvider.prototype.updateUserIngredient = function (ingredient) {
-        this.http.put('http://localhost:3000/api/user/update', ingredient)
-            .subscribe(function (data) {
-            console.log(data);
-        }, function (error) {
-            console.log(error);
+        var _this = this;
+        // console.log(ingredient);
+        var url = this.apiUrl + '/user/select_ingredient';
+        return new Promise(function (resolve, reject) {
+            _this.http.put(url, {
+                ingredient: ingredient,
+                username: 'sasha'
+            }).subscribe(function (data) {
+                console.log(data);
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+                reject(err);
+            });
         });
+    };
+    UserProvider.prototype.fetchPotentialMatch = function () {
+        var url = this.apiUrl + '/user/select_ingredient';
     };
     return UserProvider;
 }());
 UserProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
 ], UserProvider);
 
+var _a;
 //# sourceMappingURL=user.js.map
 
 /***/ })

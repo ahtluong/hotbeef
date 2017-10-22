@@ -14,7 +14,11 @@ import { TabsPage } from '../tabModule/tabs/tabs';
   templateUrl: 'welcome.html',
 })
 export class WelcomePage {
+  ingredient = null;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.ingredient = this.navParams.get('ingredient');
+    console.log(this.ingredient);
   }
 
   ionViewDidLoad() {

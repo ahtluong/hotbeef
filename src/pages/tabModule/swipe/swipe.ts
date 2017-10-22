@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
+import { UserProvider } from '../../../providers/user/user';
+
 
 @IonicPage()
 @Component({
@@ -9,11 +12,13 @@ import { AlertController } from 'ionic-angular';
 })
 export class SwipePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  potentialMatch;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private userProvider: UserProvider) {
+    this.userProvider.fetchPotentialMatch();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SwipePage');
   }
 
   showAlert() {
