@@ -23,7 +23,7 @@ var UserSchema = new Schema({
 			lat: Number, 
 			long: Number
 	},
-	swipes: [{ingredient: String, id: Number}] 
+	swipes: [{ingredient: String, other_user: String}] 
 });
 
 

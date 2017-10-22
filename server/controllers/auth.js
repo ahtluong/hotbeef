@@ -12,7 +12,7 @@ var config = require('../config');
 
 app.post('/register', function(req, res) {
   var hashedPassword = bcrypt.hashSync(req.body.password, 8);
-  console.log(req.body);
+
   User.create({
     username : req.body.username,
     password : hashedPassword
