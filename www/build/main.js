@@ -34,15 +34,6 @@ var ChooseStarterPage = (function () {
     }
     ChooseStarterPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        var options = document.getElementsByClassName('options');
-        var _loop_1 = function (i) {
-            options[i].addEventListener('click', function (e) {
-                _this.onClick(options[i]);
-            });
-        };
-        for (var i = 0; i < options.length; i++) {
-            _loop_1(i);
-        }
         this.ingredientProvider.getIngredientList()
             .then(function (data) {
             _this.displayIngredients = data;
@@ -50,14 +41,15 @@ var ChooseStarterPage = (function () {
         });
     };
     ChooseStarterPage.prototype.onClick = function (el) {
-        this.userProvider.updateUserIngredient(el.attribute('ingredient'));
+        // el = name
+        this.userProvider.updateUserIngredient(el);
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__welcome_welcome__["a" /* WelcomePage */]);
     };
     return ChooseStarterPage;
 }());
 ChooseStarterPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-choose-starter',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/choose-starter/choose-starter.html"*/'<!--\n  Generated template for the ChooseStarterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Who are you?</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-alternate">\n\n	<ion-grid>\n		<ion-row>\n        <ion-col *ngFor="let data of displayIngredients">\n          <div class="starter-wrapper">\n            <div class="img-wrapper">\n              <img src="../../assets/icon/ingredients/{{data.name}}">\n            </div>\n            {{data.name}}\n          </div>\n         \n        </ion-col>\n			<!-- <ion-col class="options">\n				<div class="starter-wrapper">\n          <div class="img-wrapper">\n            <img src="../../assets/icon/ingredients/001-food-5.svg">\n          </div>\n          Tomato\n				</div>\n			</ion-col> -->\n		</ion-row>\n	</ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/choose-starter/choose-starter.html"*/,
+        selector: 'page-choose-starter',template:/*ion-inline-start:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/choose-starter/choose-starter.html"*/'<!--\n  Generated template for the ChooseStarterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Who are you?</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-alternate">\n\n	<ion-grid>\n		<ion-row>\n        <ion-col *ngFor="let data of displayIngredients" class="options">\n          <div class="starter-wrapper" (click)="onClick(data.name);">\n            <div class="img-wrapper">\n              <img src="../../assets/icon/ingredients/{{data.name}}.svg">\n            </div>\n            {{data.name}}\n          </div>\n        </ion-col>\n		</ion-row>\n	</ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Emily/GoogleDrive/Projects/Hackathons/VandyHacks4/hotbeef/src/pages/choose-starter/choose-starter.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_user_user__["a" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_ingredient_ingredient__["a" /* IngredientProvider */]])
 ], ChooseStarterPage);

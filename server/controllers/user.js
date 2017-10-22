@@ -4,6 +4,28 @@ var {User} = require('../models/user')
 var Router = require('express').Router;
 var app = new Router();
 
+
+app.get('/portion', (req, res) => {
+  User.find({username : req.headers.username}).then((user) => {
+    res.send(user.portion);
+  }, (e) => {
+    res.status(400).send(e);
+  });
+});
+
+
+app.post('/portion', (req, res) => {
+  User.find({username : req.headers.username}).then((user) => {
+    user.portion = req.body.portion;
+    User.save().then((doc) => {
+      res.send(doc);
+    }, (e) => {
+      res.status(400).send(e);
+    });
+  });
+});
+
+
 app.get('/inventory/:ingredient', (req, res) => {
   let ingredient = req.params.ingredient;
 
@@ -14,32 +36,6 @@ app.get('/inventory/:ingredient', (req, res) => {
   });
 });
 
-app.put('/select_ingredient', (req, res) => {
-  let ingredient = req.body.ingredient;
-  let username = req.body.username;
-  
-  User.update({'username': username}, {$set: {starter_ingredient: ingredient}}).then((count, status) => {
-    IngredientMap.find({name: ingredient}).then((ingredient_map) => {
-      User.update({'username': username}, {$set: {icon_url: ingredient_map.icon_url}}).then((count, status) => {}, (err) => {})
-    }, (err) => {
-      res.status(400).send(e);
-    });
-  });
-});
-
-app.get('/all_ingredient_list', (req, res) => {
-  IngredientMap.find().then((ingredient_list) => {
-    res.send(ingredient_list);
-  }, (e) => {
-    res.status(400).send(e);
-  });
-});
-
-app.put('/bio', (req, res) => {
-  let bio = req.body.bio;
-  // TODO: let username = req.
-  User.update({'username': username}, {$set: {bio: bio}}).then((count, status) => {}, (e) => {});
-});
 
 app.post('/inventory', (req, res) => {
   let ingredient = new IngredientMap(req.body);
@@ -51,21 +47,87 @@ app.post('/inventory', (req, res) => {
   });
 });
 
-// TODO: IN PROGRESS
-app.post('/rightswipe', (req, res) => {
-  let user = req.body.user; 
-  let user_swipes = user.swipes;
-  let username = user.username;
-  let other_user = req.body.other_user;
-  let other_user_swipes = other_user.swipes
-  let i = other_user.length - 1;
 
+app.put('/bio', (req, res) => {
+  let bio = req.body.bio;
+  let username = req.headers.username;
+  User.update({'username': username}, {$set: {bio: bio}}).then((count, status) => {}, (e) => {});
+});
+
+
+app.put('/ingredient', (req, res) => {
+  let ingredient = req.body.ingredient;
+  let username = req.headers.username;
+  
+  User.update({'username': username}, {$set: {starter_ingredient: ingredient}}).then((count, status) => {
+    IngredientMap.find({name: ingredient}).then((ingredient_map) => {
+      User.update({'username': username}, {$set: {icon_url: ingredient_map.icon_url}}).then((count, status) => {}, (err) => {})
+    }, (err) => {
+      res.status(400).send(e);
+    });
+  });
+});
+
+
+app.get('/all_ingredient_list', (req, res) => {
+  IngredientMap.find().then((ingredient_list) => {
+    res.send(ingredient_list);
+  }, (e) => {
+    res.status(400).send(e);
+  });
+});
+
+
+app.post('/right_swipe', (req, res) => {
+  let user1 = req.body.user1; 
+  let user1_swipe_history = user1.swipes;
+  let user1_name = user1.username;
+  let user1_ingredient = user.starter_ingredient;
+
+  let user2 = req.body.user2;
+  let user2_swipe_history = user2.swipes;
+  let user2_name = user2.username;
+  let user2_ingredient = user2.starter_ingredient;
+
+  let j = user1_swipe_history.length - 1;
+  let i = user2_swipe_history.length - 1;
+
+  // Remove users from each other's swipe history and update ingredients list for both
   while (i >= 0) {
-    if (username == other_user[i].other_user) {
-      otherUserSwipes.splice(i, 1);
-    }
+    if (username == user2_swipe_history[i].other_user) {
+      user2_swipe_history.splice(i, 1);
+      while (j >= 0) {
+        if (user2_name == user1_swipe_history[j].other_user) {
+          user1_swipe_history.splice(j, 1);
+        }
+        j--;
+      }
+
+      let dishes = user1.inventory;
+      dishes.forEach(function(dish) {
+        dish.ingredients.forEach(function(ingredient) {
+          if (ingredient == user2_ingredient) {
+            ingredient = true;
+          }
+        })
+      });
+
+      dishes = user2.inventory;
+      dishes.forEach(function(dish) {
+        dish.ingredients.forEach(function(ingredient) {
+          if (ingredient == user1_ingredient) {
+            ingredient = true;
+          }
+        })
+      });
+
+      break;
+    } 
     i--;
   }
+
+  res.status(200);
 });
+
 
 module.exports.UserController = app;

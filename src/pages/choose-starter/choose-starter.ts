@@ -22,13 +22,6 @@ export class ChooseStarterPage {
   }
 
   ionViewDidLoad() {
-    let options = document.getElementsByClassName('options');
-    for (let i = 0; i < options.length; i++) {
-    	options[i].addEventListener('click', (e) => {
-    		this.onClick(options[i]);
-    	});
-    }
-
     this.ingredientProvider.getIngredientList()
     .then(data => {
       this.displayIngredients = data;
@@ -37,7 +30,8 @@ export class ChooseStarterPage {
   }
 
   onClick(el) {
-    this.userProvider.updateUserIngredient(el.attribute('ingredient'));
+    // el = name
+    this.userProvider.updateUserIngredient(el);
   	this.navCtrl.push(WelcomePage);
   }
 
