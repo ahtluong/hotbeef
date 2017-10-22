@@ -25,6 +25,9 @@ export class SwipePage {
     this.userProvider.fetchPotentialMatch()
     .then(data => {
       console.log(data);
+      // if(data['starter_ingredient'] == null) {
+        // data['starter_ingredient'] = 'default';
+      // }
       this.potentialMatch = data;
     })
     .catch(err => {

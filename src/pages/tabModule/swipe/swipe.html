@@ -17,11 +17,11 @@
     <ng-template #loading>
     </ng-template>
 
-    <ion-card-header>
-      Hello
+    <ion-card-header *ngIf="potentialMatch;else loading">
+      {{ potentialMatch.starter_ingredient }}
     </ion-card-header>
-    <ion-item class="bio">
-      bb pls
+    <ion-item class="bio" *ngIf="potentialMatch;else loading">
+      {{ potentialMatch.bio }}
     </ion-item>
   </ion-card>
 
