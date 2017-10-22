@@ -24,7 +24,7 @@ app.post('/register', function(req, res) {
       expiresIn: 86400 
     });
 
-    res.status(200).send({ auth: true, token: token });
+    res.status(200).send({ auth: true, user: user, token: token });
   });
 });
 
