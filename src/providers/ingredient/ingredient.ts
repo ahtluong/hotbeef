@@ -1,21 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class IngredientProvider {
-  constructor(public http: Http) {
+
+  apiUrl = 'https://jsonplaceholder.typicode.com';
+
+  constructor(public http: HttpClient) {
   }
 
   getIngredientList() {
-    this.http.get('http://localhost:3000/api/user/all_ingredient_list')
-      .toPromise()
-      .then((data) => {
-        return data;
-      })
-      .catch((error) => {
-        return error;
+    let url = 'http://localhost:3000/api/user/all_ingredient_list';
+    return new Promise(resolve => {
+      this.http.get(url).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
       });
+    });
   }
 }
