@@ -34,15 +34,6 @@ var ChooseStarterPage = (function () {
     }
     ChooseStarterPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        var options = document.getElementsByClassName('options');
-        var _loop_1 = function (i) {
-            options[i].addEventListener('click', function (e) {
-                _this.onClick(options[i]);
-            });
-        };
-        for (var i = 0; i < options.length; i++) {
-            _loop_1(i);
-        }
         this.ingredientProvider.getIngredientList()
             .then(function (data) {
             _this.displayIngredients = data;
@@ -50,6 +41,7 @@ var ChooseStarterPage = (function () {
         });
     };
     ChooseStarterPage.prototype.onClick = function (el) {
+        // el = name
         this.userProvider.updateUserIngredient(el.attribute('ingredient'));
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__welcome_welcome__["a" /* WelcomePage */]);
     };
@@ -57,7 +49,7 @@ var ChooseStarterPage = (function () {
 }());
 ChooseStarterPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-choose-starter',template:/*ion-inline-start:"/Users/aluong/code/hotbeef/src/pages/choose-starter/choose-starter.html"*/'<!--\n  Generated template for the ChooseStarterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Who are you?</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-alternate">\n\n	<ion-grid>\n		<ion-row>\n        <ion-col *ngFor="let data of displayIngredients">\n          <div class="starter-wrapper">\n            <div class="img-wrapper">\n              <img src="../../assets/icon/ingredients/{{data.name}}">\n            </div>\n            {{data.name}}\n          </div>\n         \n        </ion-col>\n			<!-- <ion-col class="options">\n				<div class="starter-wrapper">\n          <div class="img-wrapper">\n            <img src="../../assets/icon/ingredients/001-food-5.svg">\n          </div>\n          Tomato\n				</div>\n			</ion-col> -->\n		</ion-row>\n	</ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/Users/aluong/code/hotbeef/src/pages/choose-starter/choose-starter.html"*/,
+        selector: 'page-choose-starter',template:/*ion-inline-start:"/Users/aluong/code/hotbeef/src/pages/choose-starter/choose-starter.html"*/'<!--\n  Generated template for the ChooseStarterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Who are you?</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-alternate">\n\n	<ion-grid>\n		<ion-row>\n        <ion-col *ngFor="let data of displayIngredients" class="options">\n          <div class="starter-wrapper" (click)="onClick(data.name);">\n            <div class="img-wrapper">\n              <img src="../../assets/icon/ingredients/{{data.name}}.svg">\n            </div>\n            {{data.name}}\n          </div>\n        </ion-col>\n		</ion-row>\n	</ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/Users/aluong/code/hotbeef/src/pages/choose-starter/choose-starter.html"*/,
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers_user_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_user_user__["a" /* UserProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_ingredient_ingredient__["a" /* IngredientProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_ingredient_ingredient__["a" /* IngredientProvider */]) === "function" && _d || Object])
 ], ChooseStarterPage);
@@ -358,11 +350,11 @@ var map = {
 		6
 	],
 	"../pages/create-account/create-account.module": [
-		283,
+		284,
 		5
 	],
 	"../pages/tabModule/progress/progress.module": [
-		284,
+		283,
 		4
 	],
 	"../pages/tabModule/settings/settings.module": [
@@ -589,8 +581,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */], {}, {
                 links: [
                     { loadChildren: '../pages/choose-starter/choose-starter.module#ChooseStarterPageModule', name: 'ChooseStarterPage', segment: 'choose-starter', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/create-account/create-account.module#CreateAccountPageModule', name: 'CreateAccountPage', segment: 'create-account', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/tabModule/progress/progress.module#ProgressPageModule', name: 'ProgressPage', segment: 'progress', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/create-account/create-account.module#CreateAccountPageModule', name: 'CreateAccountPage', segment: 'create-account', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/tabModule/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/tabModule/swipe/swipe.module#SwipePageModule', name: 'SwipePage', segment: 'swipe', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/tabModule/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
