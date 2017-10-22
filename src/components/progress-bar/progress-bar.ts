@@ -24,4 +24,9 @@ export class ProgressBarComponent {
       this.amount = data['portion'];
     });
   }
+
+  setAmount(amt) {
+    this.amount = amt;
+    console.log('PLS BRO');
+  }
 }
