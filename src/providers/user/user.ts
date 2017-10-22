@@ -48,16 +48,27 @@ export class UserProvider {
   }
 
   getUserPortion(username) {
-    let url = 'http://localhost:3000/api/user/portion/';
+    let url = 'http://localhost:3000/api/user/portion';
 
     return new Promise(resolve => {
-      this.http.get(url, {headers: new HttpHeaders().set('username', username)}).subscribe(data => {
-        console.log(data);
+      this.http.get(url, {headers: new HttpHeaders().set('username', username)})
+      .subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
       });
     });
+  }
+
+  getUserInventory(username) {
+    let url = 'http://localhost:3000/api/user/inventory';
+    return new Promise(resolve => {
+      this.http.get(url, 
+        {headers: new HttpHeaders().set('username', username)})
+        .subscribe(data => {
+          resolve(data[0].inventory);
+        })
+    })
   }
 
 }

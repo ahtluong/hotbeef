@@ -36,6 +36,14 @@ app.get('/inventory/:ingredient', (req, res) => {
   });
 });
 
+app.get('/inventory', (req, res) => {
+  User.find({username : req.headers.username}).then((user) => {
+    inventory = user[0].inventory;
+    res.send(inventory);
+  }, (e) => {
+    res.status(400).send(e);
+  })
+});
 
 app.post('/inventory', (req, res) => {
   let ingredient = new IngredientMap(req.body);
