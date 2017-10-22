@@ -47,4 +47,17 @@ export class UserProvider {
     let url = this.apiUrl + '/user/select_ingredient';
   }
 
+  getUserPortion(username) {
+    let url = 'http://localhost:3000/api/user/portion/';
+
+    return new Promise(resolve => {
+      this.http.get(url, {headers: new HttpHeaders().set('username', username)}).subscribe(data => {
+        console.log(data);
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
 }

@@ -7,7 +7,7 @@ var app = new Router();
 
 app.get('/portion', (req, res) => {
   User.find({username : req.headers.username}).then((user) => {
-    res.send(user.portion);
+    res.send({portion: user[0].portion});
   }, (e) => {
     res.status(400).send(e);
   });
