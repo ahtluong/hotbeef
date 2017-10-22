@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WelcomePage } from '../welcome/welcome';
+import { UserProvider } from '../../providers/user/user';
 
 @IonicPage()
 @Component({
@@ -9,8 +10,11 @@ import { WelcomePage } from '../welcome/welcome';
 })
 export class ChooseStarterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private userProvider: UserProvider)
+  { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChooseStarterPage');
@@ -23,7 +27,7 @@ export class ChooseStarterPage {
   }
 
   onClick(el) {
-  	console.log(el);
+    this.userProvider.updateUserIngredient(el.attribute('ingredient'));
   	this.navCtrl.push(WelcomePage);
   }
 
