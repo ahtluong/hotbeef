@@ -4,6 +4,28 @@ var {User} = require('../models/user')
 var Router = require('express').Router;
 var app = new Router();
 
+
+app.get('/portion', (req, res) => {
+  User.find({username : req.headers.username}).then((user) => {
+    res.send(user.portion);
+  }, (e) => {
+    res.status(400).send(e);
+  });
+});
+
+
+app.post('/portion', (req, res) => {
+  User.find({username : req.headers.username}).then((user) => {
+    user.portion = req.body.portion;
+    User.save().then((doc) => {
+      res.send(doc);
+    }, (e) => {
+      res.status(400).send(e);
+    });
+  });
+});
+
+
 app.get('/inventory/:ingredient', (req, res) => {
   let ingredient = req.params.ingredient;
 
@@ -14,7 +36,26 @@ app.get('/inventory/:ingredient', (req, res) => {
   });
 });
 
-app.put('/select_ingredient', (req, res) => {
+
+app.post('/inventory', (req, res) => {
+  let ingredient = new IngredientMap(req.body);
+
+  ingredient.save().then((doc) => {
+    res.send(doc);
+  }, (e) => {
+    res.status(400).send(e);
+  });
+});
+
+
+app.put('/bio', (req, res) => {
+  let bio = req.body.bio;
+  let username = req.headers.username;
+  User.update({'username': username}, {$set: {bio: bio}}).then((count, status) => {}, (e) => {});
+});
+
+
+app.put('/ingredient', (req, res) => {
   let ingredient = req.body.ingredient;
   let username = req.headers.username;
   
@@ -27,6 +68,7 @@ app.put('/select_ingredient', (req, res) => {
   });
 });
 
+
 app.get('/all_ingredient_list', (req, res) => {
   IngredientMap.find().then((ingredient_list) => {
     res.send(ingredient_list);
@@ -35,68 +77,50 @@ app.get('/all_ingredient_list', (req, res) => {
   });
 });
 
-app.put('/bio', (req, res) => {
-  let bio = req.body.bio;
-  let username = req.headers.username;
-  User.update({'username': username}, {$set: {bio: bio}}).then((count, status) => {}, (e) => {});
-});
 
-app.post('/inventory', (req, res) => {
-  let ingredient = new IngredientMap(req.body);
+app.post('/right_swipe', (req, res) => {
+  let user1 = req.body.user1; 
+  let user1_swipe_history = user1.swipes;
+  let user1_name = user1.username;
+  let user1_ingredient = user.starter_ingredient;
 
-  ingredient.save().then((doc) => {
-    res.send(doc);
-  }, (e) => {
-    res.status(400).send(e);
-  });
-});
+  let user2 = req.body.user2;
+  let user2_swipe_history = user2.swipes;
+  let user2_name = user2.username;
+  let user2_ingredient = user2.starter_ingredient;
 
-app.post('/rightswipe', (req, res) => {
-  let user = req.body.user; 
-  let user_swipes = user.swipes;
-  let username = user.username;
-  let user_ingredient = user.starter_ingredient;
+  let j = user1_swipe_history.length - 1;
+  let i = user2_swipe_history.length - 1;
 
-  let other_user = req.body.other_user;
-  let other_user_swipes = other_user.swipes;
-  let other_user_name = other_user.username;
-  let other_user_ingredient = other_user.starter_ingredient;
-
-  let j = user_swipes.length - 1;
-  let i = other_user_swipes.length - 1;
-
+  // Remove users from each other's swipe history and update ingredients list for both
   while (i >= 0) {
-    // If I'm in their swipes...
-    if (username == other_user_swipes[i].other_user) {
-      // Remove me from their swipes
-      other_user_swipes.splice(i, 1);
+    if (username == user2_swipe_history[i].other_user) {
+      user2_swipe_history.splice(i, 1);
       while (j >= 0) {
-        if (other_user_name == user_swipes[j].other_user) {
-          // Remove them from my swipes
-          user_swipes.splice(j, 1);
+        if (user2_name == user1_swipe_history[j].other_user) {
+          user1_swipe_history.splice(j, 1);
         }
         j--;
       }
 
-      // Update my ingredients list
-      let dishes = user.inventory;
+      let dishes = user1.inventory;
       dishes.forEach(function(dish) {
         dish.ingredients.forEach(function(ingredient) {
-          if (ingredient == other_user_ingredient) {
+          if (ingredient == user2_ingredient) {
             ingredient = true;
           }
         })
       });
 
-      // Update their ingredients list
-      dishes = other_user.inventory;
+      dishes = user2.inventory;
       dishes.forEach(function(dish) {
         dish.ingredients.forEach(function(ingredient) {
-          if (ingredient == user_ingredient) {
+          if (ingredient == user1_ingredient) {
             ingredient = true;
           }
         })
       });
+
       break;
     } 
     i--;
