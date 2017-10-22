@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -8,9 +8,13 @@ export class UserProvider {
   }
 
   createUser(username, password) : boolean {
-    let data = JSON.stringify({username: username, password: password});
+    // let data = JSON.stringify({username: username, password: password});
+    let data = {
+      username: username,
+      password: password
+    }
     
-    this.http.post('http://localhost:3000/api/user/register', data)
+    this.http.post('http://localhost:3000/api/auth/register', data)
     .subscribe((data) => {
         return true;
     }, (error) => {

@@ -3,7 +3,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { HttpModule, Headers, RequestOptions } from '@angular/http';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // Pages
 import { MyApp } from './app.component';
@@ -23,6 +24,7 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 
 // Providers
 import { UserProvider } from '../providers/user/user';
+import { IngredientProvider } from '../providers/ingredient/ingredient';
 
 @NgModule({
   declarations: [
@@ -44,8 +46,7 @@ import { UserProvider } from '../providers/user/user';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    Headers,
-    RequestOptions
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -63,7 +64,8 @@ import { UserProvider } from '../providers/user/user';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+    IngredientProvider
   ]
 })
 export class AppModule {}

@@ -26,21 +26,27 @@ page-choose-starter {
     }
   }
 	ion-row {
-		height: 100px;
 		margin-bottom: 10px;
 		ion-col {
-			// background-color: color($colors, primary);
-			width: 100px;
-			height: 100%;
 			float: center;
-			div {
+			.starter-wrapper {
+        color: color($colors, secondary);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        width: 100px;
+        height: 100px;
 				padding: 10px;
 				display: block;
 				margin: 0 auto;
 				background-color: color($colors, light);
-				width: 80%;
-				size: 80%;
-				border-radius: 15px;
+        border-radius: 15px;
+        text-align: center;
+        .img-wrapper {
+          width: 80%;
+          margin: 0 auto;
+        }
 			}
 		}
 	}
