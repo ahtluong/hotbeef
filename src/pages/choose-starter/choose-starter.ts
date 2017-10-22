@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WelcomePage } from '../welcome/welcome';
-import { Observable } from 'rxjs/Observable';
 import { IngredientProvider } from '../../providers/ingredient/ingredient';
 import { UserProvider } from '../../providers/user/user';
 
