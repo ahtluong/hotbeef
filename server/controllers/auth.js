@@ -19,11 +19,7 @@ app.post('/register', function(req, res) {
   },
   function (err, user) {
     if (err) return res.status(500).send("There was a problem registering the user.")
-
-    var token = jwt.sign({ id: user._id }, config.secret, {
-      expiresIn: 86400 
-    });
-
+    var token = jwt.sign({ id: user._id }, config.secret, { expiresIn: 86400 });
     res.status(200).send({ auth: true, user: user, token: token });
   });
 });
@@ -40,18 +36,12 @@ app.post('/login', function(req, res) {
   User.findOne({ username: req.body.username }, function (err, user) {
     if (err) return res.status(500).send('Error on the server.');
     if (!user) return res.status(404).send('No user found.');
-
     var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
     if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
-
-    var token = jwt.sign({ id: user._id }, config.secret, {
-      expiresIn: 86400
-    });
-
+    var token = jwt.sign({ id: user._id }, config.secret, { expiresIn: 86400 });
     res.status(200).send({ auth: true, token: token });
   });
 });
-
 
 app.get('/logout', function(req, res) {
   res.status(200).send({ auth: false, token: null });

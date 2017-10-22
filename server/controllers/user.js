@@ -76,6 +76,16 @@ app.get('/all_ingredient_list', (req, res) => {
     res.status(400).send(e);
   });
 });
+ 
+
+// TODO: Actually use location data
+app.get('/nearby', (req, res) => {
+  User.find().then((users) => {
+    res.send(users);
+  }, (e) => {
+    res.status(400).send(e);
+  });
+});
 
 
 app.post('/right_swipe', (req, res) => {
@@ -120,6 +130,10 @@ app.post('/right_swipe', (req, res) => {
           }
         })
       });
+
+      User.update({username: user1}, user1).then((count) => {
+        User.update({username: user2}, user2).then((count) => {}, (e) => {});
+      }, (e) => {});
 
       break;
     } 
