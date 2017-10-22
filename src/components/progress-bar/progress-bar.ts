@@ -13,7 +13,6 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ProgressBarComponent {
 
-  text: string;
   amount: number;
   username = 'emily';
 
@@ -21,11 +20,8 @@ export class ProgressBarComponent {
     console.log('Hello ProgressBarComponent Component');
     
     this.userProvider.getUserPortion(this.username).then(data => {
-      console.log(data);
+      console.log(data['portion']);
+      this.amount = data['portion'];
     });
-    
-    this.amount = 40;
-    this.text = this.amount + '%';
   }
-
 }

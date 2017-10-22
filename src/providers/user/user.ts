@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserProvider {
-  constructor(public http: Http) {
+  constructor(public http: HttpClient) {
   }
 
   createUser(username, password) : boolean {
@@ -33,9 +33,11 @@ export class UserProvider {
   }
 
   getUserPortion(username) {
-    let url = 'http://localhost:3000/api/portion/' + username;
+    let url = 'http://localhost:3000/api/user/portion/';
+
     return new Promise(resolve => {
-      this.http.get(url).subscribe(data => {
+      this.http.get(url, {headers: new HttpHeaders().set('username', username)}).subscribe(data => {
+        console.log(data);
         resolve(data);
       }, err => {
         console.log(err);
