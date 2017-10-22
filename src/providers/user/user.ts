@@ -60,7 +60,8 @@ export class UserProvider {
   getUserPortion(username) {
     let url = this.apiUrl + '/user/portion/';
     return new Promise(resolve => {
-      this.http.get(url, {headers: new HttpHeaders().set('username', username)}).subscribe(data => {
+      this.http.get(url, {headers: new HttpHeaders().set('username', username)})
+      .subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -69,15 +70,38 @@ export class UserProvider {
   }
 
   getUserInventory(username) {
-    let url = this.apiUrl + '/api/user/inventory';
-    console.log(username);
+    let url = this.apiUrl + '/user/inventory';
     return new Promise(resolve => {
       this.http.get(url, 
         {headers: new HttpHeaders().set('username', username)})
         .subscribe(data => {
-          resolve(data[0].inventory);
-        })
-    })
+          var dishes = [];
+          console.log(data);
+          // resolve(data[0].inventory);
+          for (var obj in data) {
+            var dish = {}
+            dish['name'] = data[obj].dish_name;
+            var count = 0;
+            var ingredients = data[obj].ingredients;
+    
+            // for each ingredient in the dish
+            for (var item in ingredients) {
+              if (ingredients[item].acquired == true) {
+                count += 1;
+              }
+            }
+            // calculate the percentage
+            var percentage = ((count * 1.0) / (ingredients.length * 1.0)) * 100
+            // this.dishPercentages.push(percentage);
+            dish['amount'] = percentage;
+            dishes.push(dish);
+          }
+          console.log(dishes);
+          resolve(dishes);
+        }, err => {
+          console.log(err);
+        });
+    });
   }
 
 }
