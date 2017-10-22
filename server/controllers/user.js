@@ -63,15 +63,23 @@ app.put('/bio', (req, res) => {
 });
 
 
+app.put('/select_ingredient', (req, res) => {
+  IngredientMap.find({name: req.body.ingredient}).then((ingredient) => {
+    User.update({username: req.body.username}, {$set: {starter_ingredient: ingredient, icon_url: ingredient.icon_url}}).then((count, status) => {}, (err) => {});
+  }, (err) => {
+    res.status(400).send(err);
+  });
+});
+
 app.put('/ingredient', (req, res) => {
   let ingredient = req.body.ingredient;
   let username = req.headers.username;
   
-  User.update({'username': username}, {$set: {starter_ingredient: ingredient}}).then((count, status) => {
+  User.update({username: username}, {$set: {starter_ingredient: ingredient}}).then((count, status) => {
     IngredientMap.find({name: ingredient}).then((ingredient_map) => {
-      User.update({'username': username}, {$set: {icon_url: ingredient_map.icon_url}}).then((count, status) => {}, (err) => {})
+      User.update({username: username}, {$set: {icon_url: ingredient_map.icon_url}}).then((count, status) => {}, (err) => {});
     }, (err) => {
-      res.status(400).send(err);
+      res.status(400).send(e);
     });
   });
 });

@@ -1,9 +1,3 @@
-<!--
-  Generated template for the SwipePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -18,7 +12,11 @@
 
 <ion-content padding no-bounce>
   <ion-card>
-    <img src="../../../assets/icon/ingredients/broccoli.svg">
+    <img *ngIf="potentialMatch;else loading" src="../../../assets/icon/ingredients/{{potentialMatch.starter_ingredient}}.svg">
+
+    <ng-template #loading>
+    </ng-template>
+
     <ion-card-header>
       Hello
     </ion-card-header>
@@ -31,10 +29,10 @@
   <ion-grid class="swipe-left-right">
     <ion-row>
       <ion-col col-6>
-        <ion-icon class="close" name="close-circle-outline"></ion-icon>
+        <ion-icon class="close" name="close-circle-outline" (click)="rejectPotentialMatch();"></ion-icon>
       </ion-col>
       <ion-col col-6>
-        <ion-icon class="checkmark" name="checkmark-circle" (click)="showAlert();"></ion-icon>
+        <ion-icon class="checkmark" name="checkmark-circle" (click)="acceptPotentialMatch();"></ion-icon>
       </ion-col>
     </ion-row>
   </ion-grid>

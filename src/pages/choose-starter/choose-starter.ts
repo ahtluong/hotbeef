@@ -30,13 +30,7 @@ export class ChooseStarterPage {
   onClick(el) {
     // el = name
     // console.log('hello');
-    this.userProvider.updateUserIngredient(el)
-    .then(data => {
-      console.log(data);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+    this.userProvider.updateUserIngredient(el);
     this.navCtrl.push(WelcomePage, {ingredient: el});
   }
 

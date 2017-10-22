@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { UserProvider } from '../../providers/user/user';
 
 @Component({
-  selector: 'progress-bar',
-  templateUrl: 'progress-bar.html'
+  selector: 'progress-bar-portion',
+  templateUrl: 'progress-bar-portion.html'
 })
-export class ProgressBarComponent {
+export class ProgressBarPortionComponent {
 
-  amount: number;
-  username = 'emily';
+	amount: number;
+	username = 'emily';
 
   constructor(private userProvider: UserProvider) {    
     this.userProvider.getUserPortion(this.username).then(data => {
@@ -16,4 +16,5 @@ export class ProgressBarComponent {
       this.amount = data['portion'];
     });
   }
+
 }

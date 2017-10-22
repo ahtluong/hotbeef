@@ -11,7 +11,7 @@ export class UserProvider {
   constructor(public http: HttpClient) {
   }
 
-  createUser(username, password) : boolean {
+  createUser(username, password): boolean {
     let data = {
       username: username,
       password: password
@@ -27,32 +27,34 @@ export class UserProvider {
   }
 
   updateUserIngredient(ingredient) {
-    // console.log(ingredient);
     let url = this.apiUrl + '/user/select_ingredient';
     return new Promise((resolve, reject) => {
       this.http.put(url, {
         ingredient: ingredient,
         username: 'sasha'
-      }).subscribe(data => {
-        console.log(data);
-        resolve(data);
-      }, err => {
-        console.log(err);  
-        reject(err);
       });
     });
   }
 
   fetchPotentialMatch() {
-    let url = this.apiUrl + '/user/select_ingredient';
+    let url = this.apiUrl + '/user/nearby';
+    return new Promise((resolve, reject) => {
+      this.http.get(url).subscribe(data => {
+        let i;
+        if (<any>data.length)
+          i = Math.floor(Math.random() * data.length);
+        else i = 0;
+        resolve(data[i]);
+      }, err => {
+        reject(err);
+      });
+    });
   }
 
   getUserPortion(username) {
-    let url = 'http://localhost:3000/api/user/portion';
-
+    let url = this.apiUrl + '/user/portion/';
     return new Promise(resolve => {
-      this.http.get(url, {headers: new HttpHeaders().set('username', username)})
-      .subscribe(data => {
+      this.http.get(url, {headers: new HttpHeaders().set('username', username)}).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -61,7 +63,8 @@ export class UserProvider {
   }
 
   getUserInventory(username) {
-    let url = 'http://localhost:3000/api/user/inventory';
+    let url = this.apiUrl + '/api/user/inventory';
+    console.log(username);
     return new Promise(resolve => {
       this.http.get(url, 
         {headers: new HttpHeaders().set('username', username)})

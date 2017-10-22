@@ -2,12 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../../providers/user/user';
 import { ProgressBarComponent } from '../../../components/progress-bar/progress-bar';
-/**
- * Generated class for the ProgressPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -25,7 +19,6 @@ export class ProgressPage {
   }
   
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProgressPage');
     this.userProvider.getUserInventory(this.username).then(data => {
 
       // for each dish

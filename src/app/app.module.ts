@@ -21,6 +21,7 @@ import { SettingsPage } from '../pages/tabModule/settings/settings';
 // Components
 import { NavbarLogoComponent } from '../components/navbar-logo/navbar-logo';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
+import { ProgressBarPortionComponent } from '../components/progress-bar-portion/progress-bar-portion';
 
 // Providers
 import { UserProvider } from '../providers/user/user';
@@ -40,7 +41,8 @@ import { IngredientProvider } from '../providers/ingredient/ingredient';
     SettingsPage,
     // Components
     NavbarLogoComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    ProgressBarPortionComponent
   ],
   imports: [
     BrowserModule,

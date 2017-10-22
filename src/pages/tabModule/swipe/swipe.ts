@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { AlertController, LoadingController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { UserProvider } from '../../../providers/user/user';
 
@@ -13,12 +13,33 @@ import { UserProvider } from '../../../providers/user/user';
 export class SwipePage {
 
   potentialMatch;
+  currentNum: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private userProvider: UserProvider) {
-    this.userProvider.fetchPotentialMatch();
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public loadingCtrl: LoadingController, private userProvider: UserProvider) {
+    this.fetchNewMatch();
   }
 
   ionViewDidLoad() {
+  }
+
+  fetchNewMatch() {
+    this.userProvider.fetchPotentialMatch()
+    .then(data => {
+      console.log(data);
+      this.potentialMatch = data;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+  rejectPotentialMatch() {
+    // logic for removing card and replacing with new view
+    this.fetchNewMatch();
+  }
+
+  acceptPotentialMatch() {
+    console.log(this.potentialMatch.username);
   }
 
   showAlert() {
@@ -30,7 +51,11 @@ export class SwipePage {
     alert.present();
   }
 
-  rejectIngredient() {
-    // logic for removing card and replacing with new view
+  presentLoading() {
+    let loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 3000
+    });
+    loader.present();
   }
 }
