@@ -101,92 +101,69 @@ app.get('/nearby', (req, res) => {
 });
 
 
-// app.post('/right_swipe', (req, res) => {
-//   let user1 = req.body.user1; 
-//   let user1_swipe_history = user1.swipes;
-//   let user1_name = user1.username;
-//   let user1_ingredient = user.starter_ingredient;
-
-//   let user2 = req.body.user2;
-//   let user2_swipe_history = user2.swipes;
-//   let user2_name = user2.username;
-//   let user2_ingredient = user2.starter_ingredient;
-
-//   let j = user1_swipe_history.length - 1;
-//   let i = user2_swipe_history.length - 1;
-
-//   // Remove users from each other's swipe history and update ingredients list for both
-//   while (i >= 0) {
-//     if (username == user2_swipe_history[i].other_user) {
-//       user2_swipe_history.splice(i, 1);
-//       while (j >= 0) {
-//         if (user2_name == user1_swipe_history[j].other_user) {
-//           user1_swipe_history.splice(j, 1);
-//         }
-//         j--;
-//       }
-
-//       let dishes = user1.inventory;
-//       dishes.forEach(function(dish) {
-//         dish.ingredients.forEach(function(ingredient) {
-//           if (ingredient == user2_ingredient) {
-//             ingredient = true;
-//           }
-//         })
-//       });
-
-//       dishes = user2.inventory;
-//       dishes.forEach(function(dish) {
-//         dish.ingredients.forEach(function(ingredient) {
-//           if (ingredient == user1_ingredient) {
-//             ingredient = true;
-//           }
-//         })
-//       });
-
-//       User.update({username: user1}, user1).then((count) => {
-//         User.update({username: user2}, user2).then((count) => {}, (e) => {});
-//       }, (e) => {});
-
-//       break;
-//     } 
-//     i--;
-//   }
-
-//   res.status(200);
-// });
-
 app.post('/right_swipe', (req, res) => {
-  let username1 = req.body.username1;
-  let username2 = req.body.username2;
+  User.find({username: req.headers.username}).then((user2) => {
+    User.find({username: req.body.username2}).then((user1) => {
+      let user1_name = user1.username;
+      let user2_name = user2.username;
+      let user1_swipe_history = user1.swipes;
+      let user2_swipe_history = user2.swipes;
+      let user1_ingredient = user.starter_ingredient;      
+      let user2_ingredient = user2.starter_ingredient;    
+      let j = user1_swipe_history.length - 1;
+      let i = user2_swipe_history.length - 1;
 
-  User.find({username: username2})
-  .then(user2 => {
-    // If username1 is inside user2 => found ya
-    let foundYa = 0;
-    for (let i = 0; i < user2.swipes.length; i++) {
-      if (username1 == user2.swipes[i].other_user) {
-        foundYa = 1;
-        // We may need to go through our user1.swipes and clear those of same ingredient
+      // Remove users from each other's swipe history and update ingredients list for both
+      while (i >= 0) {
+        if (user1_name == user2_swipe_history[i].other_user) {
+          user2_swipe_history.splice(i, 1);
+          while (j >= 0) {
+            if (user2_name == user1_swipe_history[j].other_user) {
+              user1_swipe_history.splice(j, 1);
+              break;
+            }
+            j--;
+          }
+
+          let dishes = user1.inventory;
+          dishes.forEach(function(dish) {
+            dish.ingredients.forEach(function(ingredient) {
+              if (ingredient == user2_ingredient) {
+                ingredient = true;
+              }
+            })
+          });
+
+          dishes = user2.inventory;
+          dishes.forEach(function(dish) {
+            dish.ingredients.forEach(function(ingredient) {
+              if (ingredient == user1_ingredient) {
+                ingredient = true;
+              }
+            })
+          });
+
+          User.update({username: user1}, user1).then((count) => {
+            User.update({username: user2}, user2).then((count) => {
+              res.status(200);
+            }, (e) => {});
+          }, (e) => {});
+
+          break;
+        } 
+        i--;
       }
-    }
-    // If not: add username2 to user1
-    // TODO Push username2 to user1.swipes
-    if (foundYa) {
-      // TODO Go through user1.swipes and clear same ingredient
 
-      // Send user back
-      res.send(user2);
-    } else {
-      // TODO Push username2 to user1.swipes
+      if (i == -1) {
+        user1_swipe_history.add({"ingredient": user2_ingredient, "other_user": user2_name});
+        User.update({username: user1_name}, user1).then((count) => {
+          res.status(200);
+        }, (e) => {});
+      }
 
-      // Send something back???
-      res.send(something); // ????????
-    }
-  }, err => {
-    console.log(err);
+      res.status(200);
+    });
   });
 });
-
 
 module.exports.UserController = app;
