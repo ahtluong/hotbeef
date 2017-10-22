@@ -32,6 +32,7 @@ export class ChooseStarterPage {
     this.ingredientProvider.getIngredientList()
     .then(data => {
       this.displayIngredients = data;
+      console.log(data);
     });
   }
 
