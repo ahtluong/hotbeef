@@ -42,7 +42,7 @@ var ChooseStarterPage = (function () {
     };
     ChooseStarterPage.prototype.onClick = function (el) {
         // el = name
-        this.userProvider.updateUserIngredient(el.attribute('ingredient'));
+        this.userProvider.updateUserIngredient(el);
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__welcome_welcome__["a" /* WelcomePage */]);
     };
     return ChooseStarterPage;

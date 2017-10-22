@@ -31,7 +31,7 @@ export class ChooseStarterPage {
 
   onClick(el) {
     // el = name
-    this.userProvider.updateUserIngredient(el.attribute('ingredient'));
+    this.userProvider.updateUserIngredient(el);
   	this.navCtrl.push(WelcomePage);
   }
 
