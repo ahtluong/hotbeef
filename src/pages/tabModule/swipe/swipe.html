@@ -6,7 +6,7 @@
     </ion-title>
   </ion-navbar>
   <div class="progress-bar-wrapper">
-    <progress-bar></progress-bar>
+    <progress-bar-portion></progress-bar-portion>
   </div>
 </ion-header>
 
@@ -17,11 +17,11 @@
     <ng-template #loading>
     </ng-template>
 
-    <ion-card-header>
-      Hello
+    <ion-card-header *ngIf="potentialMatch;else loading">
+      {{ potentialMatch.starter_ingredient }}
     </ion-card-header>
-    <ion-item class="bio">
-      bb pls
+    <ion-item class="bio" *ngIf="potentialMatch;else loading">
+      {{ potentialMatch.bio }}
     </ion-item>
   </ion-card>
 
