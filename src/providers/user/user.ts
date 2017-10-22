@@ -8,6 +8,7 @@ export class UserProvider {
   }
 
   createUser(username, password) : boolean {
+    // let data = JSON.stringify({username: username, password: password});
     let data = {
       username: username,
       password: password

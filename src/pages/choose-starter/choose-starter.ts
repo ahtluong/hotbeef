@@ -10,11 +10,12 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ChooseStarterPage {
 
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private userProvider: UserProvider)
-  { }
+  username: String;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private userProvider: UserProvider) { 
+      this.username = this.navParams.get('username');
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChooseStarterPage');

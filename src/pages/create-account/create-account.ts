@@ -25,11 +25,15 @@ export class CreateAccountPage {
   submitForm() {
     let createUserResult = this.userProvider.createUser(this.username, this.password);
     if (createUserResult) {
-      this.navCtrl.push(ChooseStarterPage);
+      this.navCtrl.push(ChooseStarterPage, {
+        username: this.username  
+      });
     } else {
       // Fail, do something;
-      console.log('fail');
-      this.navCtrl.push(ChooseStarterPage);
+      console.log('fail,' + createUserResult);
+      this.navCtrl.push(ChooseStarterPage, {
+        username: this.username  
+      });
     } 
   }
 
