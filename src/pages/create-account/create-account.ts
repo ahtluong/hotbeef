@@ -23,7 +23,7 @@ export class CreateAccountPage {
   }
 
   submitForm() {
-    let createUserResult = this.userProvider.createUser(this.username, this.password) == true);
+    let createUserResult = this.userProvider.createUser(this.username, this.password);
     if (createUserResult) {
       this.navCtrl.push(ChooseStarterPage);
     } else {

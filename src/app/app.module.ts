@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { HttpModule, Headers, RequestOptions } from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 // Pages
 import { MyApp } from './app.component';
@@ -43,9 +43,7 @@ import { UserProvider } from '../providers/user/user';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule,
-    Headers,
-    RequestOptions
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
