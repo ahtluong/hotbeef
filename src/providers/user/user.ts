@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UserProvider {
 
-  apiUrl: string = 'https://limitless-cliffs-56066.herokuapp.com/api';
-  // apiUrl: string = 'http://localhost:3000/api';
+  // apiUrl: string = 'https://limitless-cliffs-56066.herokuapp.com/api';
+  apiUrl: string = 'http://localhost:3000/api';
   data: any;
 
   constructor(public http: HttpClient) {
@@ -32,8 +32,11 @@ export class UserProvider {
     let url = this.apiUrl + '/user/select_ingredient';
     return new Promise((resolve, reject) => {
       this.http.put(url, {
-        ingredient: ingredient,
-        username: 'sasha'
+        ingredient: ingredient
+      }, {headers: new HttpHeaders().set('username', 'sasha')}).subscribe(data => {
+        resolve(data);
+      }, err => {
+        reject(err);
       });
     });
   }
