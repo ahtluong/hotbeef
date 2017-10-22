@@ -26,23 +26,6 @@ var UserSchema = new Schema({
 	swipes: [{ingredient: String, id: Number}] 
 });
 
-
-
-// var ProfileSchema = new Schema({
-// 	name: String,
-// 	password: String,
-// 	icon_url: String,
-// 	bio: String,
-// 	starter_ingredient: String,
-//   portion: Number,
-//   inventory: [DishSchema],
-// 	location: { 
-// 			lat: Number, 
-// 			long: Number
-// 	},
-// 	swipes: [{ingredient: String, id: Number}]
-// });
-
 var IngredientMapSchema = new Schema({
   name: String,
   icon_url: String,
