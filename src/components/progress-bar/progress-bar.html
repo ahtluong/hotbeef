@@ -1,9 +1,20 @@
-<div>
-  <div class="progress-bar-container">
-    <div class="progress-bar" [style.width]="amount + '%'">
-      <div class="text-wrapper">
-        <p>{{ amount }}%</p>
+
+<ion-row *ngFor="let dish of dishes">
+  <ion-col col-3>
+    <img src="assets/icon/ingredients/{{ dish.name }}.svg">
+  </ion-col>
+  <ion-col col-9>
+    <h3>{{ dish.name }}</h3>
+    <div class="progress-bar-wrapper">
+        <div>
+            <div class="progress-bar-container">
+              <div class="progress-bar" [style.width]="dish.amount + '%'">
+                <div class="text-wrapper">
+                  <p>{{ dish.amount }}%</p>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
-    </div>
-  </div>
-</div>
+  </ion-col>
+</ion-row>

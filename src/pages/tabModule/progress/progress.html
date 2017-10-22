@@ -12,7 +12,7 @@
     </ion-title>
   </ion-navbar>
   <div class="progress-bar-wrapper">
-    <progress-bar></progress-bar>
+    <progress-bar-portion></progress-bar-portion>
   </div>
 
 </ion-header>
@@ -20,27 +20,6 @@
 
 <ion-content padding>
   <ion-grid>
-    <ion-row *ngFor="let dish of dishes">
-      <ion-col col-3>
-        <img src="assets/icon/ingredients/{{ dish.name }}.svg">
-      </ion-col>
-      <ion-col col-9>
-        <h3>{{ dish.name }}</h3>
-        <div class="progress-bar-wrapper">
-            <progress-bar class="on-white" [style.width]="dish.amount + '%'"></progress-bar>
-          </div>
-      </ion-col>
-    </ion-row>
-    <!-- <ion-row>
-        <ion-col col-3>
-          <img src="../../assets/icon/ingredients/hamburger.svg">
-        </ion-col>
-        <ion-col col-9>
-          <h3>Hamburger</h3>
-          <div class="progress-bar-wrapper" style="width: 100%">
-              <progress-bar class="on-white"></progress-bar>
-            </div>
-        </ion-col>
-      </ion-row> -->
+        <progress-bar class="on-white"></progress-bar>
   </ion-grid>
 </ion-content>
