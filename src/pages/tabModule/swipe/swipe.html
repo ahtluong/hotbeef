@@ -20,8 +20,8 @@
     <ion-card-header *ngIf="potentialMatch;else loading">
       {{ potentialMatch.starter_ingredient }}
     </ion-card-header>
-    <ion-item class="bio" *ngIf="potentialMatch;else loading">
-      {{ potentialMatch.bio }}
+    <ion-item class="bio" text-wrap *ngIf="potentialMatch;else loading">
+      <p>{{ potentialMatch.bio }}</p>
     </ion-item>
   </ion-card>
 
