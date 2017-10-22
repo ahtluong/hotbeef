@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserProvider } from '../../providers/user/user';
 
 /**
  * Generated class for the ProgressBarComponent component.
@@ -14,11 +15,17 @@ export class ProgressBarComponent {
 
   text: string;
   amount: number;
+  username = 'emily';
 
-  constructor() {
+  constructor(private userProvider: UserProvider) {
     console.log('Hello ProgressBarComponent Component');
+    
+    this.userProvider.getUserPortion(this.username).then(data => {
+      console.log(data);
+    });
+    
     this.amount = 40;
-    this.text = String(this.amount) + '%';
+    this.text = this.amount + '%';
   }
 
 }

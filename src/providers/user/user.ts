@@ -32,4 +32,15 @@ export class UserProvider {
   	});
   }
 
+  getUserPortion(username) {
+    let url = 'http://localhost:3000/api/portion/' + username;
+    return new Promise(resolve => {
+      this.http.get(url).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
 }
