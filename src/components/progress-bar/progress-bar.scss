@@ -1,6 +1,10 @@
 progress-bar {
   display: block; 
   color: #fff;
+  h3 {
+    color: color($colors, dark);
+    margin-left: 15px;
+  }
   .progress-bar-container {
     height: 40px;
     width: 100%;
