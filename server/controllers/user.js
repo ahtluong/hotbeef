@@ -92,7 +92,6 @@ app.get('/all_ingredient_list', (req, res) => {
 
 // TODO: Actually use location data
 app.get('/nearby', (req, res) => {
-  console.log("yolo");
   User.find().then((users) => {
     res.send(users);
   }, (e) => {
@@ -102,14 +101,14 @@ app.get('/nearby', (req, res) => {
 
 
 app.post('/right_swipe', (req, res) => {
-  User.find({username: req.headers.username}).then((user2) => {
-    User.find({username: req.body.username2}).then((user1) => {
-      let user1_name = user1.username;
-      let user2_name = user2.username;
-      let user1_swipe_history = user1.swipes;
-      let user2_swipe_history = user2.swipes;
-      let user1_ingredient = user.starter_ingredient;      
-      let user2_ingredient = user2.starter_ingredient;    
+  User.find({username: req.headers.username}).then((user1) => {
+    User.find({username: req.body.username2}).then((user2) => {
+      let user1_name = user1[0].username;
+      let user2_name = user2[0].username;
+      let user1_swipe_history = user1[0].swipes;
+      let user2_swipe_history = user2[0].swipes;
+      let user1_ingredient = user1[0].starter_ingredient;      
+      let user2_ingredient = user2[0].starter_ingredient;    
       let j = user1_swipe_history.length - 1;
       let i = user2_swipe_history.length - 1;
 
@@ -125,7 +124,7 @@ app.post('/right_swipe', (req, res) => {
             j--;
           }
 
-          let dishes = user1.inventory;
+          let dishes = user1[0].inventory;
           dishes.forEach(function(dish) {
             dish.ingredients.forEach(function(ingredient) {
               if (ingredient == user2_ingredient) {
@@ -134,7 +133,7 @@ app.post('/right_swipe', (req, res) => {
             })
           });
 
-          dishes = user2.inventory;
+          dishes = user2[0].inventory;
           dishes.forEach(function(dish) {
             dish.ingredients.forEach(function(ingredient) {
               if (ingredient == user1_ingredient) {
@@ -143,25 +142,31 @@ app.post('/right_swipe', (req, res) => {
             })
           });
 
-          User.update({username: user1}, user1).then((count) => {
-            User.update({username: user2}, user2).then((count) => {
-              res.status(200);
-            }, (e) => {});
-          }, (e) => {});
-
+          User.update({username: user1_name}, user1[0]).then((count) => {
+            User.update({username: user2_name}, user2[0]).then((count) => {
+              res.send({}), (err) => {
+                res.status(400).send(e);
+              };
+            }, (err) => {
+              res.status(400).send(e);
+            });
+            res.send({});
+          });
+          res.send({});
           break;
         } 
         i--;
       }
 
       if (i == -1) {
-        user1_swipe_history.add({"ingredient": user2_ingredient, "other_user": user2_name});
-        User.update({username: user1_name}, user1).then((count) => {
-          res.status(200);
+        user1_swipe_history.push({"ingredient": user2_ingredient, "other_user": user2_name});
+        user1[0].swipes = user1_swipe_history;
+        User.update({username: user1_name}, user1[0]).then((count) => {
+          res.send({});
         }, (e) => {});
       }
 
-      res.status(200);
+      res.send({});
     });
   });
 });
