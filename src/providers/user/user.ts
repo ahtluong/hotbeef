@@ -29,7 +29,7 @@ export class UserProvider {
   }
 
   updateUserIngredient(ingredient, username) {
-    let url = this.apiUrl + '/user/select_ingredient';
+    let url = this.apiUrl + '/user/ingredient';
     return new Promise((resolve, reject) => {
       this.http.put(url, {
         ingredient: ingredient

@@ -11,7 +11,7 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ChooseStarterPage {
 
-  username: string;
+  username: string = "1234567";
   displayIngredients;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider, private ingredientProvider: IngredientProvider) { 
@@ -23,6 +23,9 @@ export class ChooseStarterPage {
     .then(data => {
       this.displayIngredients = data;
       console.log(data);
+    })
+    .catch(err => {
+      console.log(err);
     });
   }
 
