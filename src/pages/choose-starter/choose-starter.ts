@@ -33,7 +33,7 @@ export class ChooseStarterPage {
     // el = name
     // console.log('hello');
     this.userProvider.updateUserIngredient(el, this.username);
-    this.navCtrl.push(WelcomePage, {ingredient: el});
+    this.navCtrl.push(WelcomePage, {ingredient: el, username: this.username});
   }
 
 }

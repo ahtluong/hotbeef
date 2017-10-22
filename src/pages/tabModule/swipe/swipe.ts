@@ -13,9 +13,12 @@ export class SwipePage {
 
   potentialMatch;
   currentNum: number;
+  username = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public loadingCtrl: LoadingController, private userProvider: UserProvider) {
     this.fetchNewMatch();
+
+    this.username = this.navParams.get('username') || navParams.data;
   }
 
   ionViewDidLoad() {
@@ -41,7 +44,13 @@ export class SwipePage {
   }
 
   acceptPotentialMatch() {
-    console.log(this.potentialMatch.username);
+    this.userProvider.acceptPotentialMatch(this.username, this.potentialMatch.username)
+    .then(data => {
+      console.log(data);
+    }).catch(err => {
+      console.log(err);
+    })
+    this.fetchNewMatch();
   }
 
   showAlert() {

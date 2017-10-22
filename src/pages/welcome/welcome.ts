@@ -15,15 +15,17 @@ import { TabsPage } from '../tabModule/tabs/tabs';
 })
 export class WelcomePage {
   ingredient = null;
+  username = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.ingredient = this.navParams.get('ingredient');
+    this.username = this.navParams.get('username');
   }
 
   ionViewDidLoad() {
   }
 
   tabsPage() {
-    this.navCtrl.push(TabsPage);
+    this.navCtrl.push(TabsPage, {username: this.username});
   }
 }

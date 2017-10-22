@@ -57,6 +57,27 @@ export class UserProvider {
     });
   }
 
+  acceptPotentialMatch(username1, username2) {
+    let url = this.apiUrl + '/user/right_swipe';
+    // var headers = new HttpHeaders();
+    // headers.append('username', username1);
+    // console.log('users');
+    console.log('username1 + ', username1);
+    console.log('username2 + ', username2);
+
+    return new Promise((resolve, reject) => {
+      this.http.post(url, {
+        username2: username2
+      }, {headers: new HttpHeaders().set('username', username1)}).subscribe(data => {
+        console.log('hi');
+        console.log(data);
+        resolve(data);
+      }), err => {
+        reject(err);
+      }
+    })
+  }
+
   getUserPortion(username) {
     let url = this.apiUrl + '/user/portion/';
     return new Promise(resolve => {

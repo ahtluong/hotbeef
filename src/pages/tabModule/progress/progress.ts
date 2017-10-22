@@ -8,8 +8,11 @@ import { UserProvider } from '../../../providers/user/user';
   templateUrl: 'progress.html',
 })
 export class ProgressPage {
+  
+  username = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider) {
+    this.username = this.navParams.get('username');
   }
   
   ionViewDidLoad() {

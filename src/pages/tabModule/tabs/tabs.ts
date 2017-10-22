@@ -21,8 +21,15 @@ export class TabsPage {
   tab1Root = SwipePage;
   tab2Root = ProgressPage;
   tab3Root = SettingsPage;
+  username = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    // console.log('hoaishgpaihdg');
+    // console.log(navParams);
+    // console.log('data' +  navParams.get('data'));
+    // console.log('username' +  navParams.get('username'));
+    this.username = this.navParams.get('username');
+    console.log('this' + this.username);
   }
 
   ionViewDidLoad() {

@@ -18,6 +18,6 @@ export class HomePage {
   }
 
   login() {
-    this.navCtrl.push(TabsPage);
+    this.navCtrl.push(TabsPage, {username: 'emily'});
   }
 }
