@@ -29,7 +29,7 @@ export class ChooseStarterPage {
   onClick(el) {
     // el = name
     // console.log('hello');
-    this.userProvider.updateUserIngredient(el);
+    this.userProvider.updateUserIngredient(el, this.username);
     this.navCtrl.push(WelcomePage, {ingredient: el});
   }
 

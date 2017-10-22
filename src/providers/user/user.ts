@@ -28,12 +28,12 @@ export class UserProvider {
     return false;
   }
 
-  updateUserIngredient(ingredient) {
+  updateUserIngredient(ingredient, username) {
     let url = this.apiUrl + '/user/select_ingredient';
     return new Promise((resolve, reject) => {
       this.http.put(url, {
         ingredient: ingredient
-      }, {headers: new HttpHeaders().set('username', 'sasha')}).subscribe(data => {
+      }, {headers: new HttpHeaders().set('username', username)}).subscribe(data => {
         resolve(data);
       }, err => {
         reject(err);
