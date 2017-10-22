@@ -27934,24 +27934,32 @@ page-choose-starter .logo img {
 }
 
 page-choose-starter ion-row {
-  height: 100px;
   margin-bottom: 10px;
 }
 
 page-choose-starter ion-row ion-col {
-  width: 100px;
-  height: 100%;
   float: center;
 }
 
-page-choose-starter ion-row ion-col div {
+page-choose-starter ion-row ion-col .starter-wrapper {
+  color: #F76F19;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100px;
+  height: 100px;
   padding: 10px;
   display: block;
   margin: 0 auto;
   background-color: #f4f4f4;
-  width: 80%;
-  size: 80%;
   border-radius: 15px;
+  text-align: center;
+}
+
+page-choose-starter ion-row ion-col .starter-wrapper .img-wrapper {
+  width: 80%;
+  margin: 0 auto;
 }
 
 page-create-account .toolbar {

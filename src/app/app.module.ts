@@ -23,6 +23,7 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 
 // Providers
 import { UserProvider } from '../providers/user/user';
+import { IngredientProvider } from '../providers/ingredient/ingredient';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { UserProvider } from '../providers/user/user';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+    IngredientProvider
   ]
 })
 export class AppModule {}

@@ -34,6 +34,5 @@ var IngredientMapSchema = new Schema({
 
 module.exports = {
   UserSchema: UserSchema,
-  // ProfileSchema: ProfileSchema,
   IngredientMapSchema: IngredientMapSchema
 }
