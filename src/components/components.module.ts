@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { IonicModule } from 'ionic-angular';
 import { NavbarLogoComponent } from './navbar-logo/navbar-logo';
 import { ProgressBarComponent } from './progress-bar/progress-bar';
 import { ProgressBarPortionComponent } from './progress-bar-portion/progress-bar-portion';
@@ -8,7 +9,7 @@ import { ProgressBarPortionComponent } from './progress-bar-portion/progress-bar
     ProgressBarComponent,
     ProgressBarPortionComponent
   ],
-	imports: [],
+	imports: [IonicModule],
 	exports: [
 		NavbarLogoComponent,
     ProgressBarComponent,

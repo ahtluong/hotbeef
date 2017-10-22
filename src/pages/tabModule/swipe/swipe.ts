@@ -4,7 +4,6 @@ import { AlertController, LoadingController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { UserProvider } from '../../../providers/user/user';
 
-
 @IonicPage()
 @Component({
   selector: 'page-swipe',

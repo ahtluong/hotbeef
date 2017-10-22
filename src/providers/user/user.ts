@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 export class UserProvider {
 
   apiUrl: string = 'http://localhost:3000/api';
+  data: any;
 
   constructor(public http: HttpClient) {
   }
@@ -41,8 +42,9 @@ export class UserProvider {
     return new Promise((resolve, reject) => {
       this.http.get(url).subscribe(data => {
         let i;
-        if (<any>data.length)
-          i = Math.floor(Math.random() * data.length);
+        this.data = data;
+        if (this.data.length)
+          i = Math.floor(Math.random() * this.data.length);
         else i = 0;
         resolve(data[i]);
       }, err => {
